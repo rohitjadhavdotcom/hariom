@@ -13,10 +13,10 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(hariomDomainModule),
+    typeof(HariomDomainModule),
     typeof(AbpIdentityEntityFrameworkCoreModule),
     typeof(AbpOpenIddictEntityFrameworkCoreModule),
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
@@ -27,19 +27,19 @@ namespace hariom.EntityFrameworkCore;
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule)
     )]
-public class hariomEntityFrameworkCoreModule : AbpModule
+public class HariomEntityFrameworkCoreModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
         // https://www.npgsql.org/efcore/release-notes/6.0.html#opting-out-of-the-new-timestamp-mapping-logic
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-        hariomEfCoreEntityExtensionMappings.Configure();
+        HariomEfCoreEntityExtensionMappings.Configure();
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        context.Services.AddAbpDbContext<hariomDbContext>(options =>
+        context.Services.AddAbpDbContext<HariomDbContext>(options =>
         {
                 /* Remove "includeAllEntities: true" to create
                  * default repositories only for aggregate roots */
@@ -49,7 +49,7 @@ public class hariomEntityFrameworkCoreModule : AbpModule
         Configure<AbpDbContextOptions>(options =>
         {
                 /* The main point to change your DBMS.
-                 * See also hariomMigrationsDbContextFactory for EF Core tooling. */
+                 * See also HariomMigrationsDbContextFactory for EF Core tooling. */
             options.UseNpgsql();
         });
 

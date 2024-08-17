@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 
-namespace hariom.DbMigrator;
+namespace Hariom.DbMigrator;
 
 class Program
 {
@@ -18,9 +18,9 @@ class Program
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .MinimumLevel.Override("Volo.Abp", LogEventLevel.Warning)
 #if DEBUG
-                .MinimumLevel.Override("hariom", LogEventLevel.Debug)
+                .MinimumLevel.Override("Hariom", LogEventLevel.Debug)
 #else
-                .MinimumLevel.Override("hariom", LogEventLevel.Information)
+                .MinimumLevel.Override("Hariom", LogEventLevel.Information)
 #endif
                 .Enrich.FromLogContext()
             .WriteTo.Async(c => c.File("Logs/logs.txt"))

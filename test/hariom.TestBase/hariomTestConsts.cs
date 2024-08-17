@@ -1,6 +1,6 @@
-﻿namespace hariom;
+﻿namespace Hariom;
 
-public static class hariomTestConsts
+public static class HariomTestConsts
 {
-    public const string CollectionDefinitionName = "hariom collection";
+    public const string CollectionDefinitionName = "Hariom collection";
 }

@@ -1,5 +1,5 @@
 ﻿using Localization.Resources.AbpUi;
-using hariom.Localization;
+using Hariom.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -9,10 +9,10 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomApplicationContractsModule),
+    typeof(HariomApplicationContractsModule),
     typeof(AbpAccountHttpApiModule),
     typeof(AbpIdentityHttpApiModule),
     typeof(AbpPermissionManagementHttpApiModule),
@@ -20,7 +20,7 @@ namespace hariom;
     typeof(AbpFeatureManagementHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule)
     )]
-public class hariomHttpApiModule : AbpModule
+public class HariomHttpApiModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -32,7 +32,7 @@ public class hariomHttpApiModule : AbpModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Get<hariomResource>()
+                .Get<HariomResource>()
                 .AddBaseTypes(
                     typeof(AbpUiResource)
                 );

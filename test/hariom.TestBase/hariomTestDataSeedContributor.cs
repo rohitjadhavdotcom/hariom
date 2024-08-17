@@ -2,9 +2,9 @@
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 
-namespace hariom;
+namespace Hariom;
 
-public class hariomTestDataSeedContributor : IDataSeedContributor, ITransientDependency
+public class HariomTestDataSeedContributor : IDataSeedContributor, ITransientDependency
 {
     public Task SeedAsync(DataSeedContext context)
     {

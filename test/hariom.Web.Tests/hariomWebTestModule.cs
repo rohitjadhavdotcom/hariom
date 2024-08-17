@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.DependencyInjection;
-using hariom.EntityFrameworkCore;
-using hariom.Localization;
-using hariom.Web;
-using hariom.Web.Menus;
+using Hariom.EntityFrameworkCore;
+using Hariom.Localization;
+using Hariom.Web;
+using Hariom.Web.Menus;
 using Volo.Abp.AspNetCore.TestBase;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
@@ -16,21 +16,21 @@ using Volo.Abp.OpenIddict;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Validation.Localization;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
     typeof(AbpAspNetCoreTestBaseModule),
-    typeof(hariomWebModule),
-    typeof(hariomApplicationTestModule),
-    typeof(hariomEntityFrameworkCoreTestModule)
+    typeof(HariomWebModule),
+    typeof(HariomApplicationTestModule),
+    typeof(HariomEntityFrameworkCoreTestModule)
 )]
-public class hariomWebTestModule : AbpModule
+public class HariomWebTestModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.PreConfigure<IMvcBuilder>(builder =>
         {
-            builder.PartManager.ApplicationParts.Add(new CompiledRazorAssemblyPart(typeof(hariomWebModule).Assembly));
+            builder.PartManager.ApplicationParts.Add(new CompiledRazorAssemblyPart(typeof(HariomWebModule).Assembly));
         });
 
         context.Services.GetPreConfigureActions<OpenIddictServerBuilder>().Clear();
@@ -59,7 +59,7 @@ public class hariomWebTestModule : AbpModule
         services.Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Get<hariomResource>()
+                .Get<HariomResource>()
                 .AddBaseTypes(
                     typeof(AbpValidationResource),
                     typeof(AbpUiResource)
@@ -71,7 +71,7 @@ public class hariomWebTestModule : AbpModule
     {
         services.Configure<AbpNavigationOptions>(options =>
         {
-            options.MenuContributors.Add(new hariomMenuContributor());
+            options.MenuContributors.Add(new HariomMenuContributor());
         });
     }
 }

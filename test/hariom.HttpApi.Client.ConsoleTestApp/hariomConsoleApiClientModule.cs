@@ -6,14 +6,14 @@ using Volo.Abp.Http.Client;
 using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace hariom.HttpApi.Client.ConsoleTestApp;
+namespace Hariom.HttpApi.Client.ConsoleTestApp;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(hariomHttpApiClientModule),
+    typeof(HariomHttpApiClientModule),
     typeof(AbpHttpClientIdentityModelModule)
     )]
-public class hariomConsoleApiClientModule : AbpModule
+public class HariomConsoleApiClientModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

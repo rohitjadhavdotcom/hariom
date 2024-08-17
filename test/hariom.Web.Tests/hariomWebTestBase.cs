@@ -6,9 +6,9 @@ using Shouldly;
 using Volo.Abp.AspNetCore;
 using Volo.Abp.AspNetCore.TestBase;
 
-namespace hariom;
+namespace Hariom;
 
-public abstract class hariomWebTestBase : AbpWebApplicationFactoryIntegratedTest<Program>
+public abstract class HariomWebTestBase : AbpWebApplicationFactoryIntegratedTest<Program>
 {
     protected virtual async Task<T?> GetResponseAsObjectAsync<T>(string url, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
     {

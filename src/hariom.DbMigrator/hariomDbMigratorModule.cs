@@ -1,14 +1,14 @@
-﻿using hariom.EntityFrameworkCore;
+﻿using Hariom.EntityFrameworkCore;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 
-namespace hariom.DbMigrator;
+namespace Hariom.DbMigrator;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(hariomEntityFrameworkCoreModule),
-    typeof(hariomApplicationContractsModule)
+    typeof(HariomEntityFrameworkCoreModule),
+    typeof(HariomApplicationContractsModule)
     )]
-public class hariomDbMigratorModule : AbpModule
+public class HariomDbMigratorModule : AbpModule
 {
 }

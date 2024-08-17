@@ -1,14 +1,14 @@
-﻿using hariom.Localization;
+﻿using Hariom.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace hariom.Controllers;
+namespace Hariom.Controllers;
 
 /* Inherit your controllers from this class.
  */
-public abstract class hariomController : AbpControllerBase
+public abstract class HariomController : AbpControllerBase
 {
-    protected hariomController()
+    protected HariomController()
     {
-        LocalizationResource = typeof(hariomResource);
+        LocalizationResource = typeof(HariomResource);
     }
 }

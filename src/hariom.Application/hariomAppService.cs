@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using hariom.Localization;
+using Hariom.Localization;
 using Volo.Abp.Application.Services;
 
-namespace hariom;
+namespace Hariom;
 
 /* Inherit your application services from this class.
  */
-public abstract class hariomAppService : ApplicationService
+public abstract class HariomAppService : ApplicationService
 {
-    protected hariomAppService()
+    protected HariomAppService()
     {
-        LocalizationResource = typeof(hariomResource);
+        LocalizationResource = typeof(HariomResource);
     }
 }

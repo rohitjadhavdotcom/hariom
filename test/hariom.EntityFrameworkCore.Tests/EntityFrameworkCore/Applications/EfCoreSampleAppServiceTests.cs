@@ -1,10 +1,10 @@
-using hariom.Samples;
+using Hariom.Samples;
 using Xunit;
 
-namespace hariom.EntityFrameworkCore.Applications;
+namespace Hariom.EntityFrameworkCore.Applications;
 
-[Collection(hariomTestConsts.CollectionDefinitionName)]
-public class EfCoreSampleAppServiceTests : SampleAppServiceTests<hariomEntityFrameworkCoreTestModule>
+[Collection(HariomTestConsts.CollectionDefinitionName)]
+public class EfCoreSampleAppServiceTests : SampleAppServiceTests<HariomEntityFrameworkCoreTestModule>
 {
 
 }

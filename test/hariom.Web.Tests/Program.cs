@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Builder;
-using hariom;
+using Hariom;
 using Volo.Abp.AspNetCore.TestBase;
 
 var builder = WebApplication.CreateBuilder();
-await builder.RunAbpModuleAsync<hariomWebTestModule>();
+await builder.RunAbpModuleAsync<HariomWebTestModule>();
 
 public partial class Program
 {

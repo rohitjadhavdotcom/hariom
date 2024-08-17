@@ -7,25 +7,25 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomDomainModule),
+    typeof(HariomDomainModule),
     typeof(AbpAccountApplicationModule),
-    typeof(hariomApplicationContractsModule),
+    typeof(HariomApplicationContractsModule),
     typeof(AbpIdentityApplicationModule),
     typeof(AbpPermissionManagementApplicationModule),
     typeof(AbpTenantManagementApplicationModule),
     typeof(AbpFeatureManagementApplicationModule),
     typeof(AbpSettingManagementApplicationModule)
     )]
-public class hariomApplicationModule : AbpModule
+public class HariomApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<hariomApplicationModule>();
+            options.AddMaps<HariomApplicationModule>();
         });
     }
 }

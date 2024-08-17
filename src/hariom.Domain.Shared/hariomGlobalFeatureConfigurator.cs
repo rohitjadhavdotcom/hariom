@@ -1,8 +1,8 @@
 ﻿using Volo.Abp.Threading;
 
-namespace hariom;
+namespace Hariom;
 
-public static class hariomGlobalFeatureConfigurator
+public static class HariomGlobalFeatureConfigurator
 {
     private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
 

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>hariom</RootNamespace>
+    <RootNamespace>Hariom</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\hariom.Application.Contracts\hariom.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Hariom.Application.Contracts\Hariom.Application.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

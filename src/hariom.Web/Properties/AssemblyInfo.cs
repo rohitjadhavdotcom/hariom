@@ -1,2 +1,2 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleToAttribute("hariom.Web.Tests")]
+[assembly:InternalsVisibleToAttribute("Hariom.Web.Tests")]

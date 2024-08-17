@@ -13,13 +13,13 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
 [ReplaceDbContext(typeof(IIdentityDbContext))]
 [ReplaceDbContext(typeof(ITenantManagementDbContext))]
 [ConnectionStringName("Default")]
-public class hariomDbContext :
-    AbpDbContext<hariomDbContext>,
+public class HariomDbContext :
+    AbpDbContext<HariomDbContext>,
     IIdentityDbContext,
     ITenantManagementDbContext
 {
@@ -53,7 +53,7 @@ public class hariomDbContext :
 
     #endregion
 
-    public hariomDbContext(DbContextOptions<hariomDbContext> options)
+    public HariomDbContext(DbContextOptions<HariomDbContext> options)
         : base(options)
     {
 
@@ -78,7 +78,7 @@ public class hariomDbContext :
 
         //builder.Entity<YourEntity>(b =>
         //{
-        //    b.ToTable(hariomConsts.DbTablePrefix + "YourEntities", hariomConsts.DbSchema);
+        //    b.ToTable(HariomConsts.DbTablePrefix + "YourEntities", HariomConsts.DbSchema);
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});

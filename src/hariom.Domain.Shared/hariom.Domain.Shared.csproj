@@ -5,7 +5,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>hariom</RootNamespace>
+    <RootNamespace>Hariom</RootNamespace>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
 
@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Localization\hariom\*.json" />
-    <Content Remove="Localization\hariom\*.json" />
+    <EmbeddedResource Include="Localization\Hariom\*.json" />
+    <Content Remove="Localization\Hariom\*.json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,10 +7,10 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomDomainSharedModule),
+    typeof(HariomDomainSharedModule),
     typeof(AbpAccountApplicationContractsModule),
     typeof(AbpFeatureManagementApplicationContractsModule),
     typeof(AbpIdentityApplicationContractsModule),
@@ -19,10 +19,10 @@ namespace hariom;
     typeof(AbpTenantManagementApplicationContractsModule),
     typeof(AbpObjectExtendingModule)
 )]
-public class hariomApplicationContractsModule : AbpModule
+public class HariomApplicationContractsModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        hariomDtoExtensions.Configure();
+        HariomDtoExtensions.Configure();
     }
 }

@@ -5,7 +5,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>hariom</RootNamespace>
+    <RootNamespace>Hariom</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\hariom.Domain\hariom.Domain.csproj" />
-    <ProjectReference Include="..\hariom.TestBase\hariom.TestBase.csproj" />
+    <ProjectReference Include="..\..\src\Hariom.Domain\Hariom.Domain.csproj" />
+    <ProjectReference Include="..\Hariom.TestBase\Hariom.TestBase.csproj" />
   </ItemGroup>
 
 </Project>

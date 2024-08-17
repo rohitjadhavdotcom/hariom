@@ -1,12 +1,12 @@
 ﻿using Volo.Abp.Settings;
 
-namespace hariom.Settings;
+namespace Hariom.Settings;
 
-public class hariomSettingDefinitionProvider : SettingDefinitionProvider
+public class HariomSettingDefinitionProvider : SettingDefinitionProvider
 {
     public override void Define(ISettingDefinitionContext context)
     {
         //Define your own settings here. Example:
-        //context.Add(new SettingDefinition(hariomSettings.MySetting1));
+        //context.Add(new SettingDefinition(HariomSettings.MySetting1));
     }
 }

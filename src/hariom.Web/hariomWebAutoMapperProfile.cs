@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
-namespace hariom.Web;
+namespace Hariom.Web;
 
-public class hariomWebAutoMapperProfile : Profile
+public class HariomWebAutoMapperProfile : Profile
 {
-    public hariomWebAutoMapperProfile()
+    public HariomWebAutoMapperProfile()
     {
         //Define your AutoMapper configuration here for the Web project.
     }

@@ -1,14 +1,14 @@
-﻿using hariom.Localization;
+﻿using Hariom.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
 
-namespace hariom.Web.Pages;
+namespace Hariom.Web.Pages;
 
 /* Inherit your PageModel classes from this class.
  */
-public abstract class hariomPageModel : AbpPageModel
+public abstract class HariomPageModel : AbpPageModel
 {
-    protected hariomPageModel()
+    protected HariomPageModel()
     {
-        LocalizationResourceType = typeof(hariomResource);
+        LocalizationResourceType = typeof(HariomResource);
     }
 }

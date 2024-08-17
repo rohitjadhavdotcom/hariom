@@ -2,9 +2,9 @@
 using Shouldly;
 using Xunit;
 
-namespace hariom.Pages;
+namespace Hariom.Pages;
 
-public class Index_Tests : hariomWebTestBase
+public class Index_Tests : HariomWebTestBase
 {
     [Fact]
     public async Task Welcome_Page()

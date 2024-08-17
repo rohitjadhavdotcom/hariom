@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 
-namespace hariom.HttpApi.Client.ConsoleTestApp;
+namespace Hariom.HttpApi.Client.ConsoleTestApp;
 
 public class ConsoleTestAppHostedService : IHostedService
 {
@@ -18,7 +18,7 @@ public class ConsoleTestAppHostedService : IHostedService
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        using (var application = await AbpApplicationFactory.CreateAsync<hariomConsoleApiClientModule>(options =>
+        using (var application = await AbpApplicationFactory.CreateAsync<HariomConsoleApiClientModule>(options =>
         {
            options.Services.ReplaceConfiguration(_configuration);
            options.UseAutofac();

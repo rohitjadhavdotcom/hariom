@@ -1,10 +1,10 @@
-using hariom.Samples;
+using Hariom.Samples;
 using Xunit;
 
-namespace hariom.EntityFrameworkCore.Domains;
+namespace Hariom.EntityFrameworkCore.Domains;
 
-[Collection(hariomTestConsts.CollectionDefinitionName)]
-public class EfCoreSampleDomainTests : SampleDomainTests<hariomEntityFrameworkCoreTestModule>
+[Collection(HariomTestConsts.CollectionDefinitionName)]
+public class EfCoreSampleDomainTests : SampleDomainTests<HariomEntityFrameworkCoreTestModule>
 {
 
 }

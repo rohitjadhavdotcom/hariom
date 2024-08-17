@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using hariom.MultiTenancy;
+using Hariom.MultiTenancy;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Emailing;
@@ -15,10 +15,10 @@ using Volo.Abp.PermissionManagement.OpenIddict;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomDomainSharedModule),
+    typeof(HariomDomainSharedModule),
     typeof(AbpAuditLoggingDomainModule),
     typeof(AbpBackgroundJobsDomainModule),
     typeof(AbpFeatureManagementDomainModule),
@@ -30,7 +30,7 @@ namespace hariom;
     typeof(AbpTenantManagementDomainModule),
     typeof(AbpEmailingModule)
 )]
-public class hariomDomainModule : AbpModule
+public class HariomDomainModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

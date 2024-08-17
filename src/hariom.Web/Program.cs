@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 
-namespace hariom.Web;
+namespace Hariom.Web;
 
 public class Program
 {
@@ -32,7 +32,7 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
-            await builder.AddApplicationAsync<hariomWebModule>();
+            await builder.AddApplicationAsync<HariomWebModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
             await app.RunAsync();

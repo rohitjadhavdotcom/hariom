@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using hariom.EntityFrameworkCore;
-using hariom.Localization;
-using hariom.MultiTenancy;
-using hariom.Web.Menus;
+using Hariom.EntityFrameworkCore;
+using Hariom.Localization;
+using Hariom.MultiTenancy;
+using Hariom.Web.Menus;
 using Microsoft.OpenApi.Models;
 using OpenIddict.Validation.AspNetCore;
 using Volo.Abp;
@@ -40,12 +40,12 @@ using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 
-namespace hariom.Web;
+namespace Hariom.Web;
 
 [DependsOn(
-    typeof(hariomHttpApiModule),
-    typeof(hariomApplicationModule),
-    typeof(hariomEntityFrameworkCoreModule),
+    typeof(HariomHttpApiModule),
+    typeof(HariomApplicationModule),
+    typeof(HariomEntityFrameworkCoreModule),
     typeof(AbpAutofacModule),
     typeof(AbpIdentityWebModule),
     typeof(AbpSettingManagementWebModule),
@@ -55,7 +55,7 @@ namespace hariom.Web;
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
     )]
-public class hariomWebModule : AbpModule
+public class HariomWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -65,12 +65,12 @@ public class hariomWebModule : AbpModule
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
         {
             options.AddAssemblyResource(
-                typeof(hariomResource),
-                typeof(hariomDomainModule).Assembly,
-                typeof(hariomDomainSharedModule).Assembly,
-                typeof(hariomApplicationModule).Assembly,
-                typeof(hariomApplicationContractsModule).Assembly,
-                typeof(hariomWebModule).Assembly
+                typeof(HariomResource),
+                typeof(HariomDomainModule).Assembly,
+                typeof(HariomDomainSharedModule).Assembly,
+                typeof(HariomApplicationModule).Assembly,
+                typeof(HariomApplicationContractsModule).Assembly,
+                typeof(HariomWebModule).Assembly
             );
         });
 
@@ -78,7 +78,7 @@ public class hariomWebModule : AbpModule
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("hariom");
+                options.AddAudiences("Hariom");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
@@ -93,7 +93,7 @@ public class hariomWebModule : AbpModule
 
             PreConfigure<OpenIddictServerBuilder>(serverBuilder =>
             {
-                serverBuilder.AddProductionEncryptionAndSigningCertificate("openiddict.pfx", "48acda25-5a3e-4cac-bb5c-6dce55cc8329");
+                serverBuilder.AddProductionEncryptionAndSigningCertificate("openiddict.pfx", "a9f14ad2-9c9b-481b-bb5e-0c81ad65588a");
             });
         }
     }
@@ -148,7 +148,7 @@ public class hariomWebModule : AbpModule
     {
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<hariomWebModule>();
+            options.AddMaps<HariomWebModule>();
         });
     }
 
@@ -158,11 +158,11 @@ public class hariomWebModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<hariomDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}hariom.Domain.Shared"));
-                options.FileSets.ReplaceEmbeddedByPhysical<hariomDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}hariom.Domain"));
-                options.FileSets.ReplaceEmbeddedByPhysical<hariomApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}hariom.Application.Contracts"));
-                options.FileSets.ReplaceEmbeddedByPhysical<hariomApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}hariom.Application"));
-                options.FileSets.ReplaceEmbeddedByPhysical<hariomWebModule>(hostingEnvironment.ContentRootPath);
+                options.FileSets.ReplaceEmbeddedByPhysical<HariomDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hariom.Domain.Shared"));
+                options.FileSets.ReplaceEmbeddedByPhysical<HariomDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hariom.Domain"));
+                options.FileSets.ReplaceEmbeddedByPhysical<HariomApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hariom.Application.Contracts"));
+                options.FileSets.ReplaceEmbeddedByPhysical<HariomApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hariom.Application"));
+                options.FileSets.ReplaceEmbeddedByPhysical<HariomWebModule>(hostingEnvironment.ContentRootPath);
             });
         }
     }
@@ -171,7 +171,7 @@ public class hariomWebModule : AbpModule
     {
         Configure<AbpNavigationOptions>(options =>
         {
-            options.MenuContributors.Add(new hariomMenuContributor());
+            options.MenuContributors.Add(new HariomMenuContributor());
         });
     }
 
@@ -179,7 +179,7 @@ public class hariomWebModule : AbpModule
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
-            options.ConventionalControllers.Create(typeof(hariomApplicationModule).Assembly);
+            options.ConventionalControllers.Create(typeof(HariomApplicationModule).Assembly);
         });
     }
 
@@ -188,7 +188,7 @@ public class hariomWebModule : AbpModule
         services.AddAbpSwaggerGen(
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "hariom API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Hariom API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             }
@@ -230,7 +230,7 @@ public class hariomWebModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "hariom API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Hariom API");
         });
 
         app.UseAuditing();

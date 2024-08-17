@@ -1,2 +1,2 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleToAttribute("hariom.EntityFrameworkCore.Tests")]
+[assembly:InternalsVisibleToAttribute("Hariom.EntityFrameworkCore.Tests")]

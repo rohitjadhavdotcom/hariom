@@ -1,8 +1,8 @@
-﻿namespace hariom.Permissions;
+﻿namespace Hariom.Permissions;
 
-public static class hariomPermissions
+public static class HariomPermissions
 {
-    public const string GroupName = "hariom";
+    public const string GroupName = "Hariom";
 
     //Add your own permission names. Example:
     //public const string MyPermission1 = GroupName + ".MyPermission1";

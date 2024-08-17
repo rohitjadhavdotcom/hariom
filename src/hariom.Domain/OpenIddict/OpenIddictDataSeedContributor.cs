@@ -16,7 +16,7 @@ using Volo.Abp.OpenIddict.Scopes;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
 
-namespace hariom.OpenIddict;
+namespace Hariom.OpenIddict;
 
 /* Creates initial data that is needed to property run the application
  * and make client-to-server communication possible.
@@ -58,10 +58,10 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
 
     private async Task CreateScopesAsync()
     {
-        if (await _openIddictScopeRepository.FindByNameAsync("hariom") == null)
+        if (await _openIddictScopeRepository.FindByNameAsync("Hariom") == null)
         {
             await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor {
-                Name = "hariom", DisplayName = "hariom API", Resources = { "hariom" }
+                Name = "Hariom", DisplayName = "Hariom API", Resources = { "Hariom" }
             });
         }
     }
@@ -74,25 +74,25 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
             OpenIddictConstants.Permissions.Scopes.Roles,
-            "hariom"
+            "Hariom"
         };
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
 
         //Web Client
-        var webClientId = configurationSection["hariom_Web:ClientId"];
+        var webClientId = configurationSection["Hariom_Web:ClientId"];
         if (!webClientId.IsNullOrWhiteSpace())
         {
-            var webClientRootUrl = configurationSection["hariom_Web:RootUrl"]!.EnsureEndsWith('/');
+            var webClientRootUrl = configurationSection["Hariom_Web:RootUrl"]!.EnsureEndsWith('/');
 
-            /* hariom_Web client is only needed if you created a tiered
+            /* Hariom_Web client is only needed if you created a tiered
              * solution. Otherwise, you can delete this client. */
             await CreateApplicationAsync(
                 name: webClientId!,
                 type: OpenIddictConstants.ClientTypes.Confidential,
                 consentType: OpenIddictConstants.ConsentTypes.Implicit,
                 displayName: "Web Application",
-                secret: configurationSection["hariom_Web:ClientSecret"] ?? "1q2w3e*",
+                secret: configurationSection["Hariom_Web:ClientSecret"] ?? "1q2w3e*",
                 grantTypes: new List<string> //Hybrid flow
                 {
                     OpenIddictConstants.GrantTypes.AuthorizationCode, OpenIddictConstants.GrantTypes.Implicit
@@ -109,10 +109,10 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
 
 
         // Swagger Client
-        var swaggerClientId = configurationSection["hariom_Swagger:ClientId"];
+        var swaggerClientId = configurationSection["Hariom_Swagger:ClientId"];
         if (!swaggerClientId.IsNullOrWhiteSpace())
         {
-            var swaggerRootUrl = configurationSection["hariom_Swagger:RootUrl"]?.TrimEnd('/');
+            var swaggerRootUrl = configurationSection["Hariom_Swagger:RootUrl"]?.TrimEnd('/');
 
             await CreateApplicationAsync(
                 name: swaggerClientId!,

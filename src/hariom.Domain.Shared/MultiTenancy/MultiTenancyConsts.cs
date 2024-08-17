@@ -1,4 +1,4 @@
-﻿namespace hariom.MultiTenancy;
+﻿namespace Hariom.MultiTenancy;
 
 public static class MultiTenancyConsts
 {

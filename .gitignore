@@ -251,15 +251,15 @@ paket-files/
 .idea/
 *.sln.iml
 
-# hariom
-src/hariom.Web/Logs/*
-src/hariom.Web.Host/Logs/*
-src/hariom.AuthServer/Logs/*
-src/hariom.HttpApi.Host/Logs/*
-src/hariom.HttpApi.HostWithIds/Logs/*
-src/hariom.DbMigrator/Logs/*
-src/hariom.Blazor.Server/Logs/*
-src/hariom.Blazor.Server.Tiered/Logs/*
+# Hariom
+src/Hariom.Web/Logs/*
+src/Hariom.Web.Host/Logs/*
+src/Hariom.AuthServer/Logs/*
+src/Hariom.HttpApi.Host/Logs/*
+src/Hariom.HttpApi.HostWithIds/Logs/*
+src/Hariom.DbMigrator/Logs/*
+src/Hariom.Blazor.Server/Logs/*
+src/Hariom.Blazor.Server.Tiered/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*

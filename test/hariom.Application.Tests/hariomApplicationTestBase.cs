@@ -1,8 +1,8 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace hariom;
+namespace Hariom;
 
-public abstract class hariomApplicationTestBase<TStartupModule> : hariomTestBase<TStartupModule>
+public abstract class HariomApplicationTestBase<TStartupModule> : HariomTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
 

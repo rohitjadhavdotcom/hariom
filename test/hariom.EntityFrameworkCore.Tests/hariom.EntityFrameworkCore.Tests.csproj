@@ -5,12 +5,12 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>hariom</RootNamespace>
+    <RootNamespace>Hariom</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\hariom.EntityFrameworkCore\hariom.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\hariom.Application.Tests\hariom.Application.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Hariom.EntityFrameworkCore\Hariom.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Hariom.Application.Tests\Hariom.Application.Tests.csproj" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="8.2.2" />
   </ItemGroup>
 

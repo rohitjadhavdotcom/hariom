@@ -7,7 +7,7 @@ using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
     typeof(AbpAutofacModule),
@@ -15,7 +15,7 @@ namespace hariom;
     typeof(AbpAuthorizationModule),
     typeof(AbpBackgroundJobsAbstractionsModule)
     )]
-public class hariomTestBaseModule : AbpModule
+public class HariomTestBaseModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

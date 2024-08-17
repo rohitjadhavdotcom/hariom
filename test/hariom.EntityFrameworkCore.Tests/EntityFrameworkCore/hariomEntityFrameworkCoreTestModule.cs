@@ -12,14 +12,14 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Uow;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(hariomApplicationTestModule),
-    typeof(hariomEntityFrameworkCoreModule),
+    typeof(HariomApplicationTestModule),
+    typeof(HariomEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]
-public class hariomEntityFrameworkCoreTestModule : AbpModule
+public class HariomEntityFrameworkCoreTestModule : AbpModule
 {
     private SqliteConnection? _sqliteConnection;
 
@@ -68,11 +68,11 @@ public class hariomEntityFrameworkCoreTestModule : AbpModule
         var connection = new AbpUnitTestSqliteConnection("Data Source=:memory:");
         connection.Open();
 
-        var options = new DbContextOptionsBuilder<hariomDbContext>()
+        var options = new DbContextOptionsBuilder<HariomDbContext>()
             .UseSqlite(connection)
             .Options;
 
-        using (var context = new hariomDbContext(options))
+        using (var context = new HariomDbContext(options))
         {
             context.GetService<IRelationalDatabaseCreator>().CreateTables();
         }

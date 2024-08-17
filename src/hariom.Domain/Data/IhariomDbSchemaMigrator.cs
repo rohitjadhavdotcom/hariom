@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace hariom.Data;
+namespace Hariom.Data;
 
-public interface IhariomDbSchemaMigrator
+public interface IHariomDbSchemaMigrator
 {
     Task MigrateAsync();
 }

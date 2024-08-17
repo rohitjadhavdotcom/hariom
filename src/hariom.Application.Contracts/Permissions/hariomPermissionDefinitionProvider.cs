@@ -1,20 +1,20 @@
-﻿using hariom.Localization;
+﻿using Hariom.Localization;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
 
-namespace hariom.Permissions;
+namespace Hariom.Permissions;
 
-public class hariomPermissionDefinitionProvider : PermissionDefinitionProvider
+public class HariomPermissionDefinitionProvider : PermissionDefinitionProvider
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(hariomPermissions.GroupName);
+        var myGroup = context.AddGroup(HariomPermissions.GroupName);
         //Define your own permissions here. Example:
-        //myGroup.AddPermission(hariomPermissions.MyPermission1, L("Permission:MyPermission1"));
+        //myGroup.AddPermission(HariomPermissions.MyPermission1, L("Permission:MyPermission1"));
     }
 
     private static LocalizableString L(string name)
     {
-        return LocalizableString.Create<hariomResource>(name);
+        return LocalizableString.Create<HariomResource>(name);
     }
 }

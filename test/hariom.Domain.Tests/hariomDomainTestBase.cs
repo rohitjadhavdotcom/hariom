@@ -1,9 +1,9 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace hariom;
+namespace Hariom;
 
 /* Inherit from this class for your domain layer tests. */
-public abstract class hariomDomainTestBase<TStartupModule> : hariomTestBase<TStartupModule>
+public abstract class HariomDomainTestBase<TStartupModule> : HariomTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
 

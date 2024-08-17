@@ -8,10 +8,10 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.VirtualFileSystem;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomApplicationContractsModule),
+    typeof(HariomApplicationContractsModule),
     typeof(AbpAccountHttpApiClientModule),
     typeof(AbpIdentityHttpApiClientModule),
     typeof(AbpPermissionManagementHttpApiClientModule),
@@ -19,20 +19,20 @@ namespace hariom;
     typeof(AbpFeatureManagementHttpApiClientModule),
     typeof(AbpSettingManagementHttpApiClientModule)
 )]
-public class hariomHttpApiClientModule : AbpModule
+public class HariomHttpApiClientModule : AbpModule
 {
     public const string RemoteServiceName = "Default";
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.AddHttpClientProxies(
-            typeof(hariomApplicationContractsModule).Assembly,
+            typeof(HariomApplicationContractsModule).Assembly,
             RemoteServiceName
         );
 
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<hariomHttpApiClientModule>();
+            options.FileSets.AddEmbedded<HariomHttpApiClientModule>();
         });
     }
 }

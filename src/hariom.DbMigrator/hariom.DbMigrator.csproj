@@ -31,8 +31,8 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="8.2.2" />
-    <ProjectReference Include="..\hariom.Application.Contracts\hariom.Application.Contracts.csproj" />
-    <ProjectReference Include="..\hariom.EntityFrameworkCore\hariom.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Hariom.Application.Contracts\Hariom.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Hariom.EntityFrameworkCore\Hariom.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

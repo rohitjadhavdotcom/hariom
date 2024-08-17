@@ -1,14 +1,14 @@
 ﻿using System.Threading.Tasks;
-using hariom.Localization;
-using hariom.MultiTenancy;
+using Hariom.Localization;
+using Hariom.MultiTenancy;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
 using Volo.Abp.TenantManagement.Web.Navigation;
 using Volo.Abp.UI.Navigation;
 
-namespace hariom.Web.Menus;
+namespace Hariom.Web.Menus;
 
-public class hariomMenuContributor : IMenuContributor
+public class HariomMenuContributor : IMenuContributor
 {
     public async Task ConfigureMenuAsync(MenuConfigurationContext context)
     {
@@ -21,12 +21,12 @@ public class hariomMenuContributor : IMenuContributor
     private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
         var administration = context.Menu.GetAdministration();
-        var l = context.GetLocalizer<hariomResource>();
+        var l = context.GetLocalizer<HariomResource>();
 
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(
-                hariomMenus.Home,
+                HariomMenus.Home,
                 l["Menu:Home"],
                 "~/",
                 icon: "fas fa-home",

@@ -7,15 +7,15 @@ using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Identity;
 using Xunit;
 
-namespace hariom.EntityFrameworkCore.Samples;
+namespace Hariom.EntityFrameworkCore.Samples;
 
 /* This is just an example test class.
  * Normally, you don't test ABP framework code
  * (like default AppUser repository IRepository<AppUser, Guid> here).
  * Only test your custom repository methods.
  */
-[Collection(hariomTestConsts.CollectionDefinitionName)]
-public class SampleRepositoryTests : hariomEntityFrameworkCoreTestBase
+[Collection(HariomTestConsts.CollectionDefinitionName)]
+public class SampleRepositoryTests : HariomEntityFrameworkCoreTestBase
 {
     private readonly IRepository<IdentityUser, Guid> _appUserRepository;
 

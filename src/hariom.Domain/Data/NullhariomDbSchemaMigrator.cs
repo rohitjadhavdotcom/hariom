@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 
-namespace hariom.Data;
+namespace Hariom.Data;
 
 /* This is used if database provider does't define
- * IhariomDbSchemaMigrator implementation.
+ * IHariomDbSchemaMigrator implementation.
  */
-public class NullhariomDbSchemaMigrator : IhariomDbSchemaMigrator, ITransientDependency
+public class NullHariomDbSchemaMigrator : IHariomDbSchemaMigrator, ITransientDependency
 {
     public Task MigrateAsync()
     {

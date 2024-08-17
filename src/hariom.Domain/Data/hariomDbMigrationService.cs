@@ -13,20 +13,20 @@ using Volo.Abp.Identity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.TenantManagement;
 
-namespace hariom.Data;
+namespace Hariom.Data;
 
-public class hariomDbMigrationService : ITransientDependency
+public class HariomDbMigrationService : ITransientDependency
 {
-    public ILogger<hariomDbMigrationService> Logger { get; set; }
+    public ILogger<HariomDbMigrationService> Logger { get; set; }
 
     private readonly IDataSeeder _dataSeeder;
-    private readonly IEnumerable<IhariomDbSchemaMigrator> _dbSchemaMigrators;
+    private readonly IEnumerable<IHariomDbSchemaMigrator> _dbSchemaMigrators;
     private readonly ITenantRepository _tenantRepository;
     private readonly ICurrentTenant _currentTenant;
 
-    public hariomDbMigrationService(
+    public HariomDbMigrationService(
         IDataSeeder dataSeeder,
-        IEnumerable<IhariomDbSchemaMigrator> dbSchemaMigrators,
+        IEnumerable<IHariomDbSchemaMigrator> dbSchemaMigrators,
         ITenantRepository tenantRepository,
         ICurrentTenant currentTenant)
     {
@@ -35,7 +35,7 @@ public class hariomDbMigrationService : ITransientDependency
         _tenantRepository = tenantRepository;
         _currentTenant = currentTenant;
 
-        Logger = NullLogger<hariomDbMigrationService>.Instance;
+        Logger = NullLogger<HariomDbMigrationService>.Instance;
     }
 
     public async Task MigrateAsync()

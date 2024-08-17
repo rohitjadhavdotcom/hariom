@@ -1,6 +1,6 @@
-﻿namespace hariom;
+﻿namespace Hariom;
 
-public static class hariomConsts
+public static class HariomConsts
 {
     public const string DbTablePrefix = "App";
 

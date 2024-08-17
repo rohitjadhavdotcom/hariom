@@ -1,9 +1,9 @@
-﻿using hariom.EntityFrameworkCore;
+﻿using Hariom.EntityFrameworkCore;
 using Xunit;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
-public class hariomEntityFrameworkCoreCollectionFixtureBase : ICollectionFixture<hariomEntityFrameworkCoreFixture>
+public class HariomEntityFrameworkCoreCollectionFixtureBase : ICollectionFixture<HariomEntityFrameworkCoreFixture>
 {
 
 }

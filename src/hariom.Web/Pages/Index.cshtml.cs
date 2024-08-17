@@ -1,6 +1,6 @@
-﻿namespace hariom.Web.Pages;
+﻿namespace Hariom.Web.Pages;
 
-public class IndexModel : hariomPageModel
+public class IndexModel : HariomPageModel
 {
     public void OnGet()
     {

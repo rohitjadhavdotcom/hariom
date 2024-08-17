@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace hariom.Models.Test;
+namespace Hariom.Models.Test;
 
 public class TestModel
 {

@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleToAttribute("hariom.Domain.Tests")]
-[assembly:InternalsVisibleToAttribute("hariom.TestBase")]
+[assembly:InternalsVisibleToAttribute("Hariom.Domain.Tests")]
+[assembly:InternalsVisibleToAttribute("Hariom.TestBase")]

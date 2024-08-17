@@ -1,4 +1,4 @@
-﻿using hariom.Localization;
+﻿using Hariom.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -13,7 +13,7 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
     typeof(AbpAuditLoggingDomainSharedModule),
@@ -25,34 +25,34 @@ namespace hariom;
     typeof(AbpSettingManagementDomainSharedModule),
     typeof(AbpTenantManagementDomainSharedModule)    
     )]
-public class hariomDomainSharedModule : AbpModule
+public class HariomDomainSharedModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        hariomGlobalFeatureConfigurator.Configure();
-        hariomModuleExtensionConfigurator.Configure();
+        HariomGlobalFeatureConfigurator.Configure();
+        HariomModuleExtensionConfigurator.Configure();
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<hariomDomainSharedModule>();
+            options.FileSets.AddEmbedded<HariomDomainSharedModule>();
         });
 
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Add<hariomResource>("en")
+                .Add<HariomResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/hariom");
+                .AddVirtualJson("/Localization/Hariom");
 
-            options.DefaultResourceType = typeof(hariomResource);
+            options.DefaultResourceType = typeof(HariomResource);
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>
         {
-            options.MapCodeNamespace("hariom", typeof(hariomResource));
+            options.MapCodeNamespace("Hariom", typeof(HariomResource));
         });
     }
 }

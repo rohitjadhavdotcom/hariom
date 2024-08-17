@@ -1,12 +1,12 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace hariom;
+namespace Hariom;
 
 [DependsOn(
-    typeof(hariomApplicationModule),
-    typeof(hariomDomainTestModule)
+    typeof(HariomApplicationModule),
+    typeof(HariomDomainTestModule)
 )]
-public class hariomApplicationTestModule : AbpModule
+public class HariomApplicationTestModule : AbpModule
 {
 
 }

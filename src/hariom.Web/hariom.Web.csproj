@@ -5,14 +5,14 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>hariom.Web</RootNamespace>
+    <RootNamespace>Hariom.Web</RootNamespace>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
-    <UserSecretsId>hariom-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
+    <UserSecretsId>Hariom-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,9 +48,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\hariom.Application\hariom.Application.csproj" />
-    <ProjectReference Include="..\hariom.HttpApi\hariom.HttpApi.csproj" />
-    <ProjectReference Include="..\hariom.EntityFrameworkCore\hariom.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Hariom.Application\Hariom.Application.csproj" />
+    <ProjectReference Include="..\Hariom.HttpApi\Hariom.HttpApi.csproj" />
+    <ProjectReference Include="..\Hariom.EntityFrameworkCore\Hariom.EntityFrameworkCore.csproj" />
     <PackageReference Include="Volo.Abp.Autofac" Version="8.2.2" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="8.2.2" />
     <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="8.2.2" />

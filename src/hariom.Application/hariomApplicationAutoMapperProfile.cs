@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
-namespace hariom;
+namespace Hariom;
 
-public class hariomApplicationAutoMapperProfile : Profile
+public class HariomApplicationAutoMapperProfile : Profile
 {
-    public hariomApplicationAutoMapperProfile()
+    public HariomApplicationAutoMapperProfile()
     {
         /* You can configure your AutoMapper mapping configuration here.
          * Alternatively, you can split your mapping configurations

@@ -4,14 +4,14 @@ using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Xunit;
 
-namespace hariom.Samples;
+namespace Hariom.Samples;
 
 /* This is just an example test class.
  * Normally, you don't test code of the modules you are using
  * (like IIdentityUserAppService here).
  * Only test your own application services.
  */
-public abstract class SampleAppServiceTests<TStartupModule> : hariomApplicationTestBase<TStartupModule>
+public abstract class SampleAppServiceTests<TStartupModule> : HariomApplicationTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
     private readonly IIdentityUserAppService _userAppService;

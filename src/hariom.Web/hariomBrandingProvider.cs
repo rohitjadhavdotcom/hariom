@@ -1,10 +1,10 @@
 ﻿using Volo.Abp.Ui.Branding;
 using Volo.Abp.DependencyInjection;
 
-namespace hariom.Web;
+namespace Hariom.Web;
 
 [Dependency(ReplaceServices = true)]
-public class hariomBrandingProvider : DefaultBrandingProvider
+public class HariomBrandingProvider : DefaultBrandingProvider
 {
-    public override string AppName => "hariom";
+    public override string AppName => "Hariom";
 }

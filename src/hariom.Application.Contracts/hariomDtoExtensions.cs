@@ -2,9 +2,9 @@
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
-namespace hariom;
+namespace Hariom;
 
-public static class hariomDtoExtensions
+public static class HariomDtoExtensions
 {
     private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
 

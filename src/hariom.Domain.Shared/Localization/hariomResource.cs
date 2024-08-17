@@ -1,9 +1,9 @@
 ﻿using Volo.Abp.Localization;
 
-namespace hariom.Localization;
+namespace Hariom.Localization;
 
-[LocalizationResourceName("hariom")]
-public class hariomResource
+[LocalizationResourceName("Hariom")]
+public class HariomResource
 {
 
 }

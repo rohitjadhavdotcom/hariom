@@ -1,9 +1,9 @@
 ﻿using Xunit;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
-[CollectionDefinition(hariomTestConsts.CollectionDefinitionName)]
-public class hariomEntityFrameworkCoreCollection : ICollectionFixture<hariomEntityFrameworkCoreFixture>
+[CollectionDefinition(HariomTestConsts.CollectionDefinitionName)]
+public class HariomEntityFrameworkCoreCollection : ICollectionFixture<HariomEntityFrameworkCoreFixture>
 {
 
 }

@@ -3,16 +3,16 @@ using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
-public static class hariomEfCoreEntityExtensionMappings
+public static class HariomEfCoreEntityExtensionMappings
 {
     private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
 
     public static void Configure()
     {
-        hariomGlobalFeatureConfigurator.Configure();
-        hariomModuleExtensionConfigurator.Configure();
+        HariomGlobalFeatureConfigurator.Configure();
+        HariomModuleExtensionConfigurator.Configure();
 
         OneTimeRunner.Run(() =>
         {
@@ -22,7 +22,7 @@ public static class hariomEfCoreEntityExtensionMappings
                  * This class can be used to map these extra properties to table fields in the database.
                  *
                  * USE THIS CLASS ONLY TO CONFIGURE EF CORE RELATED MAPPING.
-                 * USE hariomModuleExtensionConfigurator CLASS (in the Domain.Shared project)
+                 * USE HariomModuleExtensionConfigurator CLASS (in the Domain.Shared project)
                  * FOR A HIGH LEVEL API TO DEFINE EXTRA PROPERTIES TO ENTITIES OF THE USED MODULES
                  *
                  * Example: Map a property to a table field:

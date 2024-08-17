@@ -1,8 +1,8 @@
 using System;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
-public class hariomEntityFrameworkCoreFixture : IDisposable
+public class HariomEntityFrameworkCoreFixture : IDisposable
 {
     public void Dispose()
     {

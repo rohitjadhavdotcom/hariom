@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace hariom.Migrations
+namespace Hariom.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

@@ -1,8 +1,8 @@
 ﻿using Volo.Abp;
 
-namespace hariom.EntityFrameworkCore;
+namespace Hariom.EntityFrameworkCore;
 
-public abstract class hariomEntityFrameworkCoreTestBase : hariomTestBase<hariomEntityFrameworkCoreTestModule>
+public abstract class HariomEntityFrameworkCoreTestBase : HariomTestBase<HariomEntityFrameworkCoreTestModule>
 {
 
 }
