@@ -5,7 +5,9 @@
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
     "Menu:Disease": "Disease Store",
+    "Menu:Medicine": "Medicine Store",
     "Menu:Diseases": "Diseases",
+    "Menu:Medicines": "Medicines",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -15,14 +17,22 @@
     "Name": "Name",
     "AreYouSure": "Are you sure?",
     "AreYouSureToDelete": "Are you sure you want to delete this item?",
-    "DiseaseDeletionConfirmationMessage": "Are you sure to delete the disease '{0}'?",
     "SuccessfullyDeleted": "Successfully deleted!",
 
     "Permission:Hariom": "Hariom",
+
     "Permission:Diseases": "Disease Management",
     "Permission:Diseases.Create": "Creating new diseases",
     "Permission:Diseases.Edit": "Editing the diseases",
     "Permission:Diseases.Delete": "Deleting the diseases",
-    "Disease:00001": "There is already an disease with the same name: {name}"
+    "Disease:00001": "There is already an disease with the same name: {0}",
+    "DiseaseDeletionConfirmationMessage": "Are you sure to delete the disease '{0}'?",
+
+    "Permission:Medicines": "Medicine Management",
+    "Permission:Medicines.Create": "Creating new medicines",
+    "Permission:Medicines.Edit": "Editing the medicines",
+    "Permission:Medicines.Delete": "Deleting the medicines",
+    "Medicine:00001": "There is already an medicine with the same name: {0}",
+    "MedicineDeletionConfirmationMessage": "Are you sure to delete the medicine '{0}'?"
   }
 }

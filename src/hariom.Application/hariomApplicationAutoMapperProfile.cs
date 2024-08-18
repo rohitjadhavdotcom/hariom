@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Hariom.Diseases;
+using Hariom.Medicines;
 
 namespace Hariom;
 
@@ -13,5 +14,8 @@ public class HariomApplicationAutoMapperProfile : Profile
 
         CreateMap<Disease, DiseaseDto>();
         CreateMap<CreateUpdateDiseaseDto, Disease>();
+
+        CreateMap<Medicine, MedicineDto>();
+        CreateMap<CreateUpdateMedicineDto, Medicine>();
     }
 }

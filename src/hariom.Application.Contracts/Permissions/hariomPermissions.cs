@@ -11,4 +11,12 @@ public static class HariomPermissions
         public const string Edit = Default + ".Edit";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class Medicines
+    {
+        public const string Default = GroupName + ".Medicines";
+        public const string Create = Default + ".Create";
+        public const string Edit = Default + ".Edit";
+        public const string Delete = Default + ".Delete";
+    }
 }
