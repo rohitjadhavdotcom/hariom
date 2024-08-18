@@ -1,6 +1,7 @@
 ﻿using Hariom.Diseases;
 using Hariom.Mantras;
 using Hariom.Medicines;
+using Hariom.YogTherapies;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -30,6 +31,7 @@ public class HariomDbContext :
     public DbSet<Disease> Diseases { get; set; }
     public DbSet<Medicine> Medicines { get; set; }
     public DbSet<Mantra> Mantras { get; set; }
+    public DbSet<YogTherapy> YogTherapies { get; set; }
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     #region Entities from the modules
@@ -111,6 +113,19 @@ public class HariomDbContext :
             b.Property(x => x.Name)
                 .IsRequired()
                 .HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<YogTherapy>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "YogTherapies",
+                HariomConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.YogopcharCategory)
+                .IsRequired()
+                .HasMaxLength(500);
+            b.Property(x => x.YogopcharTherapy)
+                .IsRequired()
+                .HasMaxLength(500);
         });
     }
 }

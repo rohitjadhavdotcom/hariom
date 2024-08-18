@@ -2,6 +2,7 @@
 using Hariom.Diseases;
 using Hariom.Mantras;
 using Hariom.Medicines;
+using Hariom.YogTherapies;
 
 namespace Hariom;
 
@@ -21,5 +22,8 @@ public class HariomApplicationAutoMapperProfile : Profile
 
         CreateMap<Mantra, MantraDto>();
         CreateMap<CreateUpdateMantraDto, Mantra>();
+
+        CreateMap<YogTherapy, YogTherapyDto>();
+        CreateMap<CreateUpdateYogTherapyDto, YogTherapy>();
     }
 }

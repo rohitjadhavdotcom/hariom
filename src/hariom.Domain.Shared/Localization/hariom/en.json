@@ -7,9 +7,11 @@
     "Menu:Disease": "Disease Store",
     "Menu:Medicine": "Medicine Store",
     "Menu:Mantra": "Mantra Store",
+    "Menu:YogTherapy": "YogTherapy Store",
     "Menu:Diseases": "Diseases",
     "Menu:Medicines": "Medicines",
     "Menu:Mantras": "Mantras",
+    "Menu:YogTherapies": "YogTherapies",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -17,6 +19,8 @@
     "PublishDate": "Publish date",
     "NewDisease": "New Disease",
     "Name": "Name",
+    "YogopcharCategory": "YogopcharCategory",
+    "YogopcharTherapy": "YogopcharTherapy",
     "AreYouSure": "Are you sure?",
     "AreYouSureToDelete": "Are you sure you want to delete this item?",
     "SuccessfullyDeleted": "Successfully deleted!",
@@ -42,6 +46,14 @@
     "Permission:Mantras.Edit": "Editing the mantras",
     "Permission:Mantras.Delete": "Deleting the mantras",
     "Mantra:00001": "There is already an mantra with the same name: {0}",
-    "MantraDeletionConfirmationMessage": "Are you sure to delete the mantra '{0}'?"
+    "MantraDeletionConfirmationMessage": "Are you sure to delete the mantra '{0}'?",
+
+
+    "Permission:YogTherapies": "YogTherapy Management",
+    "Permission:YogTherapies.Create": "Creating new YogTherapy",
+    "Permission:YogTherapies.Edit": "Editing the YogTherapy",
+    "Permission:YogTherapies.Delete": "Deleting the YogTherapy",
+    "YogTherapy:00001": "There is already an YogTherapy with the same name: {0}",
+    "YogTherapyDeletionConfirmationMessage": "Are you sure to delete the YogTherapy '{0}'?"
   }
 }

@@ -63,6 +63,15 @@ public class HariomMenuContributor : IMenuContributor
                 ).RequirePermissions(HariomPermissions.Mantras.Default)
         );
 
+        context.Menu.AddItem(
+                new ApplicationMenuItem(
+                    "MantraStore.YogTherapies",
+                    l["Menu:YogTherapies"],
+                    url: "/YogTherapies",
+                    icon: "fa fa-book"
+                ).RequirePermissions(HariomPermissions.Mantras.Default)
+        );
+
         if (MultiTenancyConsts.IsEnabled)
         {
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);

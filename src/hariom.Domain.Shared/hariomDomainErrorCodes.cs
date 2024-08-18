@@ -6,4 +6,5 @@ public static class HariomDomainErrorCodes
     public const string DiseaseAlreadyExists = "Disease:00001";
     public const string MedicineAlreadyExists = "Medicine:00001";
     public const string MantraAlreadyExists = "Mantra:00001";
+    public const string YogTherapyAlreadyExists = "YogTherapy:00001";
 }
