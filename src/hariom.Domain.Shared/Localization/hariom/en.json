@@ -6,8 +6,10 @@
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
     "Menu:Disease": "Disease Store",
     "Menu:Medicine": "Medicine Store",
+    "Menu:Mantra": "Mantra Store",
     "Menu:Diseases": "Diseases",
     "Menu:Medicines": "Medicines",
+    "Menu:Mantras": "Mantras",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -33,6 +35,13 @@
     "Permission:Medicines.Edit": "Editing the medicines",
     "Permission:Medicines.Delete": "Deleting the medicines",
     "Medicine:00001": "There is already an medicine with the same name: {0}",
-    "MedicineDeletionConfirmationMessage": "Are you sure to delete the medicine '{0}'?"
+    "MedicineDeletionConfirmationMessage": "Are you sure to delete the medicine '{0}'?",
+
+    "Permission:Mantras": "Mantra Management",
+    "Permission:Mantras.Create": "Creating new mantras",
+    "Permission:Mantras.Edit": "Editing the mantras",
+    "Permission:Mantras.Delete": "Deleting the mantras",
+    "Mantra:00001": "There is already an mantra with the same name: {0}",
+    "MantraDeletionConfirmationMessage": "Are you sure to delete the mantra '{0}'?"
   }
 }

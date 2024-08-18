@@ -1,4 +1,5 @@
 ﻿using Hariom.Diseases;
+using Hariom.Mantras;
 using Hariom.Medicines;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -28,6 +29,7 @@ public class HariomDbContext :
 {
     public DbSet<Disease> Diseases { get; set; }
     public DbSet<Medicine> Medicines { get; set; }
+    public DbSet<Mantra> Mantras { get; set; }
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     #region Entities from the modules
@@ -94,6 +96,16 @@ public class HariomDbContext :
         modelBuilder.Entity<Medicine>(b =>
         {
             b.ToTable(HariomConsts.DbTablePrefix + "Medicines",
+                HariomConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<Mantra>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "Mantras",
                 HariomConsts.DbSchema);
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name)

@@ -54,6 +54,15 @@ public class HariomMenuContributor : IMenuContributor
                 ).RequirePermissions(HariomPermissions.Medicines.Default)
         );
 
+        context.Menu.AddItem(
+                new ApplicationMenuItem(
+                    "MantraStore.Mantras",
+                    l["Menu:Mantras"],
+                    url: "/Mantras",
+                    icon: "fa fa-book"
+                ).RequirePermissions(HariomPermissions.Mantras.Default)
+        );
+
         if (MultiTenancyConsts.IsEnabled)
         {
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);

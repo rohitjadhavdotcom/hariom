@@ -19,6 +19,11 @@ public class HariomPermissionDefinitionProvider : PermissionDefinitionProvider
         medicinesPermission.AddChild(HariomPermissions.Medicines.Create, L("Permission:Medicines.Create"));
         medicinesPermission.AddChild(HariomPermissions.Medicines.Edit, L("Permission:Medicines.Edit"));
         medicinesPermission.AddChild(HariomPermissions.Medicines.Delete, L("Permission:Medicines.Delete"));
+
+        var mantrasPermission = hariomGroup.AddPermission(HariomPermissions.Mantras.Default, L("Permission:Mantras"));
+        mantrasPermission.AddChild(HariomPermissions.Mantras.Create, L("Permission:Mantras.Create"));
+        mantrasPermission.AddChild(HariomPermissions.Mantras.Edit, L("Permission:Mantras.Edit"));
+        mantrasPermission.AddChild(HariomPermissions.Mantras.Delete, L("Permission:Mantras.Delete"));
     }
 
     private static LocalizableString L(string name)
