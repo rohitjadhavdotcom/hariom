@@ -8,9 +8,12 @@ public class HariomPermissionDefinitionProvider : PermissionDefinitionProvider
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(HariomPermissions.GroupName);
-        //Define your own permissions here. Example:
-        //myGroup.AddPermission(HariomPermissions.MyPermission1, L("Permission:MyPermission1"));
+        var hariomGroup = context.AddGroup(HariomPermissions.GroupName, L("Permission:Hariom"));
+
+        var diseasesPermission = hariomGroup.AddPermission(HariomPermissions.Diseases.Default, L("Permission:Diseases"));
+        diseasesPermission.AddChild(HariomPermissions.Diseases.Create, L("Permission:Diseases.Create"));
+        diseasesPermission.AddChild(HariomPermissions.Diseases.Edit, L("Permission:Diseases.Edit"));
+        diseasesPermission.AddChild(HariomPermissions.Diseases.Delete, L("Permission:Diseases.Delete"));
     }
 
     private static LocalizableString L(string name)

@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Hariom.Localization;
 using Hariom.MultiTenancy;
+using Hariom.Permissions;
+using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
 using Volo.Abp.TenantManagement.Web.Navigation;
@@ -32,6 +34,15 @@ public class HariomMenuContributor : IMenuContributor
                 icon: "fas fa-home",
                 order: 0
             )
+        );
+
+        context.Menu.AddItem(
+                new ApplicationMenuItem(
+                    "DiseaseStore.Diseases",
+                    l["Menu:Diseases"],
+                    url: "/Diseases",
+                    icon: "fa fa-book"
+                ).RequirePermissions(HariomPermissions.Diseases.Default)
         );
 
         if (MultiTenancyConsts.IsEnabled)

@@ -39,6 +39,8 @@ using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Hariom.Permissions;
 
 namespace Hariom.Web;
 
@@ -111,6 +113,7 @@ public class HariomWebModule : AbpModule
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
+        ConfigureRazorPagesOptions();
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
@@ -175,6 +178,15 @@ public class HariomWebModule : AbpModule
         });
     }
 
+    private void ConfigureRazorPagesOptions()
+    {
+        Configure<RazorPagesOptions>(options =>
+        {
+            options.Conventions.AuthorizePage("/Diseases/Index", HariomPermissions.Diseases.Default);
+            options.Conventions.AuthorizePage("/Diseases/CreateModal", HariomPermissions.Diseases.Create);
+            options.Conventions.AuthorizePage("/Diseases/EditModal", HariomPermissions.Diseases.Edit);
+        });
+    }
     private void ConfigureAutoApiControllers()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
