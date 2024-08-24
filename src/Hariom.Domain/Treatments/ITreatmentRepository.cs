@@ -16,5 +16,9 @@ namespace Hariom.Treatments
             string sorting,
             string filter = null
         );
+
+        Task<List<TreatmentNavigationModel>> GetByIdAsync(
+            Guid id
+        );
     }
 }

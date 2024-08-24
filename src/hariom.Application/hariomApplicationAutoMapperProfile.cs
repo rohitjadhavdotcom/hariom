@@ -29,5 +29,7 @@ public class HariomApplicationAutoMapperProfile : Profile
 
         CreateMap<Treatment, TreatmentDto>();
         CreateMap<CreateUpdateTreatmentDto, Treatment>();
+
+        CreateMap<TreatmentNavigationModel, TreatmentNavigationModelDto>();
     }
 }

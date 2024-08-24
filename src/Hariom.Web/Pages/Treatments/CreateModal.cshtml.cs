@@ -70,14 +70,5 @@ namespace Hariom.Web.Pages.Treatments
         public List<SelectListItem> Mantras { get; set; } = [];
         public List<SelectListItem> Medicines { get; set; } = [];
         public List<SelectListItem> Yogtheropies { get; set; } = [];
-
-        [SelectItems(nameof(Diseases))]
-        public new List<Guid> SelectedDiseases { get; set; } = [];
-        [SelectItems(nameof(Mantras))]
-        public new List<Guid>? SelectedMantras { get; set; }
-        [SelectItems(nameof(Medicines))]
-        public new List<Guid> SelectedMedicines { get; set; } = [];
-        [SelectItems(nameof(Yogtheropies))]
-        public new List<Guid>? SelectedYogtheropies { get; set; }
     }
 }

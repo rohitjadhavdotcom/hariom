@@ -15,5 +15,6 @@ namespace Hariom.Treatments
         PagedAndSortedResultRequestDto, //Used for paging/sorting
         CreateUpdateTreatmentDto> //Used to create/update a book
     {
+        public Task<TreatmentNavigationModelDto> GetByIdAsync(Guid id);
     }
 }

@@ -58,7 +58,7 @@ public class HariomDomainModule : AbpModule
 
         Configure<AbpMultiTenancyOptions>(options =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            //options.IsEnabled = MultiTenancyConsts.IsEnabled;
         });
 
 #if DEBUG

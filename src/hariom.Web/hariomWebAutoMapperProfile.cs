@@ -3,6 +3,7 @@ using Hariom.Diseases;
 using Hariom.Mantras;
 using Hariom.Medicines;
 using Hariom.Treatments;
+using Hariom.Web.Pages.Treatments;
 using Hariom.YogTherapies;
 
 namespace Hariom.Web;
