@@ -6,12 +6,14 @@
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
     "Menu:Disease": "Disease Store",
     "Menu:Medicine": "Medicine Store",
+    "Menu:Treatment": "Treatment Store",
     "Menu:Mantra": "Mantra Store",
     "Menu:YogTherapy": "YogTherapy Store",
     "Menu:Diseases": "Diseases",
     "Menu:Medicines": "Medicines",
     "Menu:Mantras": "Mantras",
     "Menu:YogTherapies": "YogTherapies",
+    "Menu:Treatments": "Treatments",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -54,6 +56,12 @@
     "Permission:YogTherapies.Edit": "Editing the YogTherapy",
     "Permission:YogTherapies.Delete": "Deleting the YogTherapy",
     "YogTherapy:00001": "There is already an YogTherapy with the same name: {0}",
-    "YogTherapyDeletionConfirmationMessage": "Are you sure to delete the YogTherapy '{0}'?"
+    "YogTherapyDeletionConfirmationMessage": "Are you sure to delete the YogTherapy '{0}'?",
+
+    "Permission:Treatments": "Treatment Management",
+    "Permission:Treatments.Create": "Creating new Treatment",
+    "Permission:Treatments.Edit": "Editing the Treatment",
+    "Permission:Treatments.Delete": "Deleting the Treatment",
+    "TreatmentDeletionConfirmationMessage": "Are you sure to delete the Treatment '{0}'?"
   }
 }

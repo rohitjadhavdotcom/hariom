@@ -29,6 +29,11 @@ public class HariomPermissionDefinitionProvider : PermissionDefinitionProvider
         yogTherapiesPermission.AddChild(HariomPermissions.YogTherapies.Create, L("Permission:YogTherapies.Create"));
         yogTherapiesPermission.AddChild(HariomPermissions.YogTherapies.Edit, L("Permission:YogTherapies.Edit"));
         yogTherapiesPermission.AddChild(HariomPermissions.YogTherapies.Delete, L("Permission:YogTherapies.Delete"));
+
+        var treatmentsPermission = hariomGroup.AddPermission(HariomPermissions.Treatments.Default, L("Permission:Treatments"));
+        treatmentsPermission.AddChild(HariomPermissions.Treatments.Create, L("Permission:Treatments.Create"));
+        treatmentsPermission.AddChild(HariomPermissions.Treatments.Edit, L("Permission:Treatments.Edit"));
+        treatmentsPermission.AddChild(HariomPermissions.Treatments.Delete, L("Permission:Treatments.Delete"));
     }
 
     private static LocalizableString L(string name)

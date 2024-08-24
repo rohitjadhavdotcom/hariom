@@ -1,6 +1,7 @@
 ﻿using Hariom.Diseases;
 using Hariom.Mantras;
 using Hariom.Medicines;
+using Hariom.Treatments;
 using Hariom.YogTherapies;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -126,6 +127,46 @@ public class HariomDbContext :
             b.Property(x => x.YogopcharTherapy)
                 .IsRequired()
                 .HasMaxLength(500);
+        });
+
+
+        modelBuilder.Entity<Treatment>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "Treatments",
+                HariomConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.AboutDisease)
+                .HasMaxLength(TreatmentConsts.MaxAboutDiseaseLength);
+            b.Property(x => x.DiseaseSymptoms)
+                .HasMaxLength(TreatmentConsts.MaxDiseaseSymptomsLength);
+            b.Property(x => x.DiseaseCauses)
+                .HasMaxLength(TreatmentConsts.MaxDiseaseCausesLength);
+            b.Property(x => x.DiseaseDiagnose)
+                .HasMaxLength(TreatmentConsts.MaxDiseaseDiagnoseLength);
+            b.Property(x => x.MedicineDescription)
+                .HasMaxLength(TreatmentConsts.MaxMedicineDescriptionLength);
+            b.Property(x => x.MantraDescription)
+                .HasMaxLength(TreatmentConsts.MaxMantraDescriptionLength);
+            b.Property(x => x.YogupcharDescription)
+                .HasMaxLength(TreatmentConsts.MaxYogupcharDescriptionLength);
+            b.Property(x => x.OtherRemedies)
+                .HasMaxLength(TreatmentConsts.MaxOtherRemediesLength);
+            b.Property(x => x.ImmediateTreatment)
+                .HasMaxLength(TreatmentConsts.MaxImmediateTreatmentLength);
+
+            b.Property(x => x.PathyaAahar)
+                .HasMaxLength(TreatmentConsts.MaxPathyaAaharLinkLength);
+            b.Property(x => x.PathyaVihar)
+                .HasMaxLength(TreatmentConsts.MaxPathyaViharLinkLength);
+            b.Property(x => x.ApathyaAahar)
+                .HasMaxLength(TreatmentConsts.MaxApathyaAaharLinkLength);
+            b.Property(x => x.ApathyaVihar)
+                .HasMaxLength(TreatmentConsts.MaxApathyaViharLinkLength);
+
+            b.Property(x => x.SantsangLink)
+                .HasMaxLength(TreatmentConsts.MaxImmediateTreatmentLength);
+            b.Property(x => x.SadhakAnubhavLink)
+                .HasMaxLength(TreatmentConsts.MaxSadhakAnubhavLinkLength);
         });
     }
 }

@@ -72,6 +72,15 @@ public class HariomMenuContributor : IMenuContributor
                 ).RequirePermissions(HariomPermissions.Mantras.Default)
         );
 
+        context.Menu.AddItem(
+                new ApplicationMenuItem(
+                    "TreatmentStore.Treatments",
+                    l["Menu:Treatments"],
+                    url: "/Treatments",
+                    icon: "fa fa-book"
+                ).RequirePermissions(HariomPermissions.Treatments.Default)
+        );
+
         if (MultiTenancyConsts.IsEnabled)
         {
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);

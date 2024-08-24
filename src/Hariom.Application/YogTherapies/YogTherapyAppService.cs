@@ -65,11 +65,7 @@ namespace Hariom.YogTherapies
             try
             {
                 var yogTherapy = await _yogTherapyRepository.GetAsync(id);
-
-                if (yogTherapy.YogopcharCategory != input.YogopcharCategory)
-                {
-                    await _yogTherapyManager.ChangeYogopacharAsync(yogTherapy, input.YogopcharCategory, input.YogopcharTherapy);
-                }
+                await _yogTherapyManager.ChangeYogopacharAsync(yogTherapy, input.YogopcharCategory, input.YogopcharTherapy);
 
                 return ObjectMapper.Map<YogTherapy, YogTherapyDto>(await _yogTherapyRepository.UpdateAsync(yogTherapy));
             }
