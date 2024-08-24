@@ -1,7 +1,11 @@
 ﻿using Hariom.Diseases;
 using Hariom.Mantras;
 using Hariom.Medicines;
+using Hariom.TreatmentDiseaseMaps;
+using Hariom.TreatmentMantraMaps;
+using Hariom.TreatmentMedicineMaps;
 using Hariom.Treatments;
+using Hariom.TreatmentYogTherapyMaps;
 using Hariom.YogTherapies;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -33,6 +37,12 @@ public class HariomDbContext :
     public DbSet<Medicine> Medicines { get; set; }
     public DbSet<Mantra> Mantras { get; set; }
     public DbSet<YogTherapy> YogTherapies { get; set; }
+    public DbSet<Treatment> Treatments { get; set; }
+
+    public DbSet<TreatmentDiseaseMap> TreatmentDiseaseMaps { get; set; }
+    public DbSet<TreatmentMantraMap> TreatmentMantraMaps { get; set; }
+    public DbSet<TreatmentMedicineMap> TreatmentMedicineMaps { get; set; }
+    public DbSet<TreatmentYogTherapyMap> TreatmentYogTherapyMaps { get; set; }
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     #region Entities from the modules
@@ -138,35 +148,71 @@ public class HariomDbContext :
             b.Property(x => x.AboutDisease)
                 .HasMaxLength(TreatmentConsts.MaxAboutDiseaseLength);
             b.Property(x => x.DiseaseSymptoms)
-                .HasMaxLength(TreatmentConsts.MaxDiseaseSymptomsLength);
+                .HasMaxLength(TreatmentConsts.MaxDiseaseSymptomsLength)
+                .IsRequired(false);
             b.Property(x => x.DiseaseCauses)
-                .HasMaxLength(TreatmentConsts.MaxDiseaseCausesLength);
-            b.Property(x => x.DiseaseDiagnose)
+                .HasMaxLength(TreatmentConsts.MaxDiseaseCausesLength)
+                .IsRequired(false);
+            b.Property(x => x.DiseaseDiagnose).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxDiseaseDiagnoseLength);
             b.Property(x => x.MedicineDescription)
+                .IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxMedicineDescriptionLength);
-            b.Property(x => x.MantraDescription)
+            b.Property(x => x.MantraDescription).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxMantraDescriptionLength);
-            b.Property(x => x.YogupcharDescription)
+            b.Property(x => x.YogupcharDescription).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxYogupcharDescriptionLength);
-            b.Property(x => x.OtherRemedies)
+            b.Property(x => x.OtherRemedies).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxOtherRemediesLength);
-            b.Property(x => x.ImmediateTreatment)
+            b.Property(x => x.ImmediateTreatment).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxImmediateTreatmentLength);
 
-            b.Property(x => x.PathyaAahar)
+            b.Property(x => x.PathyaAahar).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxPathyaAaharLinkLength);
-            b.Property(x => x.PathyaVihar)
+            b.Property(x => x.PathyaVihar).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxPathyaViharLinkLength);
-            b.Property(x => x.ApathyaAahar)
+            b.Property(x => x.ApathyaAahar).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxApathyaAaharLinkLength);
-            b.Property(x => x.ApathyaVihar)
+            b.Property(x => x.ApathyaVihar).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxApathyaViharLinkLength);
 
-            b.Property(x => x.SantsangLink)
+            b.Property(x => x.SantsangLink).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxImmediateTreatmentLength);
-            b.Property(x => x.SadhakAnubhavLink)
+            b.Property(x => x.SadhakAnubhavLink).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxSadhakAnubhavLinkLength);
+        });
+
+
+        modelBuilder.Entity<TreatmentDiseaseMap>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "TreatmentDiseaseMaps", HariomConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.HasOne<Treatment>().WithMany().HasForeignKey(x => x.TreatmentId).IsRequired();
+            b.HasOne<Disease>().WithMany().HasForeignKey(x => x.DiseaseId).IsRequired();
+        });
+
+        modelBuilder.Entity<TreatmentMantraMap>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "TreatmentMantraMaps", HariomConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.HasOne<Treatment>().WithMany().HasForeignKey(x => x.TreatmentId).IsRequired();
+            b.HasOne<Mantra>().WithMany().HasForeignKey(x => x.MantraId).IsRequired();
+        });
+
+        modelBuilder.Entity<TreatmentMedicineMap>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "TreatmentMedicineMaps", HariomConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.HasOne<Treatment>().WithMany().HasForeignKey(x => x.TreatmentId).IsRequired();
+            b.HasOne<Medicine>().WithMany().HasForeignKey(x => x.MedicineId).IsRequired();
+        });
+
+        modelBuilder.Entity<TreatmentYogTherapyMap>(b =>
+        {
+            b.ToTable(HariomConsts.DbTablePrefix + "TreatmentYogTherapyMaps", HariomConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.HasOne<Treatment>().WithMany().HasForeignKey(x => x.TreatmentId).IsRequired();
+            b.HasOne<YogTherapy>().WithMany().HasForeignKey(x => x.YogTherapyId).IsRequired();
         });
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Hariom.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Hariom.Migrations
 {
     [DbContext(typeof(HariomDbContext))]
-    partial class HariomDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240824084431_created_treatments_Maps_entity")]
+    partial class created_treatments_Maps_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -356,10 +359,12 @@ namespace Hariom.Migrations
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("ApathyaAahar")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("ApathyaVihar")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
@@ -379,14 +384,17 @@ namespace Hariom.Migrations
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("DiseaseCauses")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("DiseaseDiagnose")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("DiseaseSymptoms")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
@@ -396,6 +404,7 @@ namespace Hariom.Migrations
                         .HasColumnName("ExtraProperties");
 
                     b.Property<string>("ImmediateTreatment")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
@@ -408,34 +417,42 @@ namespace Hariom.Migrations
                         .HasColumnName("LastModifierId");
 
                     b.Property<string>("MantraDescription")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("MedicineDescription")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("OtherRemedies")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("PathyaAahar")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("PathyaVihar")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("SadhakAnubhavLink")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("SantsangLink")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("YogupcharDescription")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 

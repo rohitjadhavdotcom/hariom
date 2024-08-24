@@ -8,12 +8,33 @@
 @{
     Layout = null;
 }
-<abp-dynamic-form abp-model="Treatment" asp-page="/Treatments/CreateModal">
+
+<form asp-page="/Treatments/CreateModal">
     <abp-modal>
-        <abp-modal-header title="@L["NewTreatment"].Value"></abp-modal-header>
-        <abp-modal-body>
-            <abp-form-content />
-        </abp-modal-body>
-        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+            <abp-modal-header title="@L["NewTreatment"].Value"></abp-modal-header>
+            <abp-modal-body>
+                <abp-select  asp-for="@Model.Treatment.SelectedDiseases" asp-items="@Model.Treatment.Diseases"/>
+                <abp-input asp-for="@Model.Treatment.AboutDisease"/>
+                <abp-input asp-for="@Model.Treatment.DiseaseSymptoms"/>
+                <abp-input asp-for="@Model.Treatment.DiseaseCauses"/>
+                <abp-input asp-for="@Model.Treatment.DiseaseDiagnose"/>
+                <abp-select  asp-for="@Model.Treatment.SelectedMedicines"  asp-items="@Model.Treatment.Medicines"/>
+                <abp-input asp-for="@Model.Treatment.MedicineDescription"/>
+                <abp-select  asp-for="@Model.Treatment.SelectedMantras"  asp-items="@Model.Treatment.Mantras"/>
+                <abp-input asp-for="@Model.Treatment.MantraDescription"/>
+                <abp-select  asp-for="@Model.Treatment.SelectedYogtheropies"  asp-items="@Model.Treatment.Yogtheropies"/>
+                <abp-input asp-for="@Model.Treatment.YogupcharDescription"/>
+                <abp-input asp-for="@Model.Treatment.MantraDescription"/>
+                <abp-input asp-for="@Model.Treatment.OtherRemedies"/>
+                <abp-input asp-for="@Model.Treatment.ImmediateTreatment"/>
+                <abp-input asp-for="@Model.Treatment.PathyaAahar"/>
+                <abp-input asp-for="@Model.Treatment.PathyaVihar"/>
+                <abp-input asp-for="@Model.Treatment.ApathyaAahar"/>
+                <abp-input asp-for="@Model.Treatment.ApathyaVihar"/>
+                <abp-input asp-for="@Model.Treatment.SantsangLink"/>
+                <abp-input asp-for="@Model.Treatment.SadhakAnubhavLink"/>
+
+            </abp-modal-body>
+            <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
     </abp-modal>
-</abp-dynamic-form>
+</form>

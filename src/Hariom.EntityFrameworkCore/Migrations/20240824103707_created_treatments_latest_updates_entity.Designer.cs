@@ -3,6 +3,7 @@ using System;
 using Hariom.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Hariom.Migrations
 {
     [DbContext(typeof(HariomDbContext))]
-    partial class HariomDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240824103707_created_treatments_latest_updates_entity")]
+    partial class created_treatments_latest_updates_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -383,6 +386,7 @@ namespace Hariom.Migrations
                         .HasColumnType("character varying(1000)");
 
                     b.Property<string>("DiseaseDiagnose")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
