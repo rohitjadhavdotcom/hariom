@@ -24,26 +24,100 @@
             <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
             <abp-modal-body>
                 <abp-input asp-for="@Model.Id" />
-                <abp-select  asp-for="@Model.Treatment.DiseaseId" asp-items="@Model.Treatment.Diseases"/>
-                <abp-input asp-for="@Model.Treatment.AboutDisease"/>
-                <abp-input asp-for="@Model.Treatment.DiseaseSymptoms"/>
-                <abp-input asp-for="@Model.Treatment.DiseaseCauses"/>
-                <abp-input asp-for="@Model.Treatment.DiseaseDiagnose"/>
-                <abp-select  asp-for="@Model.Treatment.SelectedMedicines"  asp-items="@Model.Treatment.Medicines"/>
-                <abp-input asp-for="@Model.Treatment.MedicineDescription"/>
-                <abp-select  asp-for="@Model.Treatment.SelectedMantras"  asp-items="@Model.Treatment.Mantras"/>
-                <abp-input asp-for="@Model.Treatment.MantraDescription"/>
-                <abp-select  asp-for="@Model.Treatment.SelectedYogtheropies"  asp-items="@Model.Treatment.Yogtheropies"/>
-                <abp-input asp-for="@Model.Treatment.YogupcharDescription"/>
-                <abp-input asp-for="@Model.Treatment.MantraDescription"/>
-                <abp-input asp-for="@Model.Treatment.OtherRemedies"/>
-                <abp-input asp-for="@Model.Treatment.ImmediateTreatment"/>
-                <abp-input asp-for="@Model.Treatment.PathyaAahar"/>
-                <abp-input asp-for="@Model.Treatment.PathyaVihar"/>
-                <abp-input asp-for="@Model.Treatment.ApathyaAahar"/>
-                <abp-input asp-for="@Model.Treatment.ApathyaVihar"/>
-                <abp-input asp-for="@Model.Treatment.SantsangLink"/>
-                <abp-input asp-for="@Model.Treatment.SadhakAnubhavLink"/>
+                @* <abp-select  asp-for="@Model.Treatment.DiseaseId" asp-items="@Model.Treatment.Diseases"/> *@
+            <div class="mb-3">
+                <label class="form-label" asp-for="Treatment.DiseaseId"></label>
+                <select asp-for="Treatment.DiseaseId"
+                        class="auto-complete-select form-select form-control"
+                        data-autocomplete-api-url="/api/app/disease"
+                        data-autocomplete-display-property="name"
+                        data-autocomplete-value-property="id"
+                        data-autocomplete-items-property="items"
+                        data-autocomplete-filter-param-name="filter"
+                        data-autocomplete-allow-clear="true">
+                    <option selected value="@Model.Treatment.DiseaseId">@Model.DiseaseName</option>
+                </select>
+                <span asp-validation-for="Treatment.DiseaseId" class="text-danger"></span>
+            </div>
+            <abp-input asp-for="@Model.Treatment.AboutDisease" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.DiseaseSymptoms" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.DiseaseCauses" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.DiseaseDiagnose" autocomplete="off" />
+                @* <abp-select  asp-for="@Model.Treatment.SelectedMedicines"  asp-items="@Model.Treatment.Medicines"/> *@
+            <div class="mb-3">
+                <label class="form-label" asp-for="Treatment.SelectedMedicines"></label>
+                <select asp-for="Treatment.SelectedMedicines"
+                        class="auto-complete-select"
+                        multiple="multiple"
+                        data-autocomplete-api-url="/api/app/medicine"
+                        data-autocomplete-display-property="name"
+                        data-autocomplete-value-property="id"
+                        data-autocomplete-items-property="items"
+                        data-autocomplete-filter-param-name="filter"
+                        data-autocomplete-parent-selector=".modal-content">
+                    @foreach (var medicine in @Model.Treatment.Medicines.Where(i => Model.Treatment.SelectedMedicines.Contains(Guid.Parse(i.Value))))
+                    {
+                        <option selected value="@medicine.Value">@medicine.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="Treatment.SelectedMedicines" class="text-danger"></span>
+            </div>
+            <abp-input asp-for="@Model.Treatment.MedicineDescription" autocomplete="off" />
+                @* <abp-select  asp-for="@Model.Treatment.SelectedMantras"  asp-items="@Model.Treatment.Mantras"/> *@
+            <div class="mb-3">
+                <label class="form-label" asp-for="Treatment.SelectedMantras"></label>
+                <select asp-for="Treatment.SelectedMantras"
+                        class="auto-complete-select"
+                        multiple="multiple"
+                        data-autocomplete-api-url="/api/app/mantra"
+                        data-autocomplete-display-property="name"
+                        data-autocomplete-value-property="id"
+                        data-autocomplete-items-property="items"
+                        data-autocomplete-filter-param-name="filter"
+                        data-autocomplete-parent-selector=".modal-content">
+                    @if (Model.Treatment.SelectedMantras?.Any() == true)
+                    {
+                        @foreach (var mantra in @Model.Treatment.Mantras.Where(i => Model.Treatment.SelectedMantras.Contains(Guid.Parse(i.Value))))
+                        {
+                            <option selected value="@mantra.Value">@mantra.Text</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Treatment.SelectedMantras" class="text-danger"></span>
+            </div>
+            <abp-input asp-for="@Model.Treatment.MantraDescription" autocomplete="off" />
+                @* <abp-select  asp-for="@Model.Treatment.SelectedYogtheropies"  asp-items="@Model.Treatment.Yogtheropies"/> *@
+            <div class="mb-3">
+                <label class="form-label" asp-for="Treatment.SelectedYogtheropies"></label>
+                <select asp-for="Treatment.SelectedYogtheropies"
+                        class="auto-complete-select"
+                        multiple="multiple"
+                        data-autocomplete-api-url="/api/app/yog-therapy"
+                        data-autocomplete-display-property="name"
+                        data-autocomplete-value-property="id"
+                        data-autocomplete-items-property="items"
+                        data-autocomplete-filter-param-name="filter"
+                        data-autocomplete-parent-selector=".modal-content">
+                    @if (Model.Treatment.SelectedYogtheropies?.Any() == true)
+                    {
+                        @foreach (var yogTherapy in @Model.Treatment.Yogtheropies.Where(i => Model.Treatment.SelectedYogtheropies.Contains(Guid.Parse(i.Value))))
+                        {
+                            <option selected value="@yogTherapy.Value">@yogTherapy.Text</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Treatment.SelectedYogtheropies" class="text-danger"></span>
+            </div>
+            <abp-input asp-for="@Model.Treatment.YogupcharDescription" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.MantraDescription" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.OtherRemedies" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.ImmediateTreatment" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.PathyaAahar" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.PathyaVihar" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.ApathyaAahar" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.ApathyaVihar" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.SantsangLink" autocomplete="off" />
+            <abp-input asp-for="@Model.Treatment.SadhakAnubhavLink" autocomplete="off" />
 
             </abp-modal-body>
             <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>

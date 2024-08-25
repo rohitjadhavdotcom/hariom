@@ -59,6 +59,7 @@ namespace Hariom.Treatments
         public string? SadhakAnubhavLink { get; set; }
 
         [DisplayName("Diasese")]
+        [Required]
         public Guid DiseaseId { get; set; }
 
         //[DisplayName("Diasese")]

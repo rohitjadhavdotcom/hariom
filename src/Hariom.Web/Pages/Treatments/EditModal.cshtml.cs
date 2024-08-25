@@ -22,6 +22,7 @@ namespace Hariom.Web.Pages.Treatments
         [HiddenInput]
         [BindProperty(SupportsGet = true)]
         public Guid Id { get; set; }
+        public string DiseaseName { get; set; }
 
         [BindProperty]
         public CreateUpdateTreatmentViewModel Treatment { get; set; }
@@ -30,6 +31,7 @@ namespace Hariom.Web.Pages.Treatments
         public async Task OnGetAsync()
         {
             var treatmentDto = await treatmentAppService.GetByIdAsync(Id);
+            DiseaseName = treatmentDto.DiseaseName;
             var createUpdateTreatmentViewModel = new CreateUpdateTreatmentViewModel
             {
                 AboutDisease = treatmentDto.AboutDisease,
