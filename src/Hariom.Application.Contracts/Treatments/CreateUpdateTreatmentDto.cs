@@ -58,8 +58,11 @@ namespace Hariom.Treatments
         [DisplayName("Sadhak Anubhav Link")]
         public string? SadhakAnubhavLink { get; set; }
 
-        [DisplayName("Diaseses")]
-        public List<Guid> SelectedDiseases { get; set; } = [];
+        [DisplayName("Diasese")]
+        public Guid DiseaseId { get; set; }
+
+        //[DisplayName("Diasese")]
+        //public List<Guid> SelectedDiseases { get; set; } = [];
         [DisplayName("Mantras")]
         public List<Guid>? SelectedMantras { get; set; }
         [DisplayName("Medicines")]

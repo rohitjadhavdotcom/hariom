@@ -180,6 +180,8 @@ public class HariomDbContext :
                 .HasMaxLength(TreatmentConsts.MaxImmediateTreatmentLength);
             b.Property(x => x.SadhakAnubhavLink).IsRequired(false)
                 .HasMaxLength(TreatmentConsts.MaxSadhakAnubhavLinkLength);
+
+            b.HasOne<Disease>().WithMany().HasForeignKey(x => x.DiseaseId).IsRequired();
         });
 
 

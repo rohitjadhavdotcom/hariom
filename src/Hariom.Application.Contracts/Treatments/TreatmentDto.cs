@@ -24,5 +24,7 @@ namespace Hariom.Treatments
         public string ApathyaVihar { get; set; } = null!;
         public string SantsangLink { get; set; } = null!;
         public string SadhakAnubhavLink { get; set; } = null!;
+        public Guid DiseaseId { get; set; }
+        public string DiseaseName { get; set; } = null!;
     }
 }

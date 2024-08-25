@@ -45,6 +45,10 @@
                     }
                 },
                 {
+                    title: l('Disease Name'),
+                    data: "diseaseName"
+                },
+                {
                     title: l('About Disease'),
                     data: "aboutDisease"
                 },

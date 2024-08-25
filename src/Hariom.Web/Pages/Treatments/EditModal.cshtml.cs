@@ -47,7 +47,7 @@ namespace Hariom.Web.Pages.Treatments
                 SantsangLink = treatmentDto.SantsangLink,
                 PathyaVihar = treatmentDto.PathyaVihar,
                 YogupcharDescription = treatmentDto.YogupcharDescription,
-                SelectedDiseases = treatmentDto.Diseases.Select(i => i.Id).ToList(),
+                DiseaseId = treatmentDto.DiseaseId,
                 SelectedMantras = treatmentDto.Mantras.Select(i => i.Id).ToList(),
                 SelectedMedicines = treatmentDto.Medicines.Select(i => i.Id).ToList(),
                 SelectedYogtheropies = treatmentDto.YogTherapies.Select(i => i.Id).ToList(),

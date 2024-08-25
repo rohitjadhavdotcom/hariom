@@ -13,7 +13,7 @@
     <abp-modal>
             <abp-modal-header title="@L["NewTreatment"].Value"></abp-modal-header>
             <abp-modal-body>
-                <abp-select  asp-for="@Model.Treatment.SelectedDiseases" asp-items="@Model.Treatment.Diseases"/>
+                <abp-select  asp-for="@Model.Treatment.DiseaseId" asp-items="@Model.Treatment.Diseases"/>
                 <abp-input asp-for="@Model.Treatment.AboutDisease"/>
                 <abp-input asp-for="@Model.Treatment.DiseaseSymptoms"/>
                 <abp-input asp-for="@Model.Treatment.DiseaseCauses"/>

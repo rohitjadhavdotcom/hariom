@@ -1,5 +1,6 @@
 ﻿using Hariom.Localization;
 using Hariom.Permissions;
+using Hariom.Treatments;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
 using System;
@@ -79,6 +80,5 @@ namespace Hariom.Diseases
                 throw new UserFriendlyException(StringLocalizer[ex.Code, input.Name]);
             }
         }
-
     }
 }

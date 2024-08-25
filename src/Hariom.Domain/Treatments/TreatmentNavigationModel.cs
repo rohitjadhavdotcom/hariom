@@ -25,11 +25,11 @@ namespace Hariom.Treatments
         public string? SantsangLink { get; set; }
         public string? SadhakAnubhavLink { get; set; }
 
-        public Guid? DiseaseId { get; set; }
+        public Guid DiseaseId { get; set; }
         public Guid? MedicineId { get; set; }
         public Guid? MantrasId { get; set; }
         public Guid? YogTherapyId { get; set; }
-        public string? DiseaseName { get; set;}
+        public string DiseaseName { get; set; } = null!;
         public string? MedicineName { get; set;}
         public string? MantrasName { get; set; }
         public string? YogopcharTherapy { get; set; }
