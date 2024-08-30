@@ -176,6 +176,8 @@ namespace Hariom.Treatments
         }
         public override async Task<PagedResultDto<TreatmentDto>> GetListAsync(PagedAndSortedResultRequestDto input)
         {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
             var queryable = await Repository.GetQueryableAsync();
 
             var query = from treatment in queryable

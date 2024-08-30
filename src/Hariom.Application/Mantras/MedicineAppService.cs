@@ -1,4 +1,5 @@
-﻿using Hariom.Localization;
+﻿using Hariom.Diseases;
+using Hariom.Localization;
 using Hariom.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
@@ -79,6 +80,13 @@ namespace Hariom.Mantras
                 throw new UserFriendlyException(StringLocalizer[ex.Code, input.Name]);
             }
 
+        }
+
+        public override async Task<PagedResultDto<MantraDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
+            return await base.GetListAsync(input);
         }
 
     }

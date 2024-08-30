@@ -80,5 +80,12 @@ namespace Hariom.Diseases
                 throw new UserFriendlyException(StringLocalizer[ex.Code, input.Name]);
             }
         }
+
+        public override async Task<PagedResultDto<DiseaseDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
+            return await base.GetListAsync(input);
+        }
     }
 }

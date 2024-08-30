@@ -6,10 +6,10 @@
 
     let dataTable = $('#MedicinesTable').DataTable(
         abp.libs.datatables.normalizeConfiguration({
-            serverSide: true,
+            serverSide: false,
             paging: true,
             order: [[1, "asc"]],
-            searching: false,
+            searching: true,
             scrollX: true,
             ajax: abp.libs.datatables.createAjax(hariom.medicines.medicine.getList),
             columnDefs: [
