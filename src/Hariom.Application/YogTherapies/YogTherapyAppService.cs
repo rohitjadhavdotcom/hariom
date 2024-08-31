@@ -1,5 +1,6 @@
 ﻿using Hariom.Diseases;
 using Hariom.Localization;
+using Hariom.Medicines;
 using Hariom.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
@@ -12,6 +13,8 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Linq.Dynamic.Core;
+
 
 namespace Hariom.YogTherapies
 {
@@ -84,5 +87,26 @@ namespace Hariom.YogTherapies
             return await base.GetListAsync(input);
         }
 
+        public async Task<PagedResultDto<YogTherapyDto>> GetListByFilterAsync(PagedAndSortedResultFilterRequestDto input)
+        {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
+            var queryable = await _yogTherapyRepository.GetQueryableAsync();
+            var query = queryable
+                .OrderBy("YogopcharTherapy")
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), i => i.YogopcharTherapy.Contains(input.Filter!))
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount);
+
+            var queryResult = await AsyncExecuter.ToListAsync(query);
+            var totalCount = await Repository.GetCountAsync();
+
+            var medicinesDtos = ObjectMapper.Map<List<YogTherapy>, List<YogTherapyDto>>(queryResult);
+
+            return new PagedResultDto<YogTherapyDto>(
+                totalCount,
+                medicinesDtos
+            );
+        }
     }
 }

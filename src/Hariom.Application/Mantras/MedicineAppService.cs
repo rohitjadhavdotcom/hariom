@@ -12,6 +12,7 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Linq.Dynamic.Core;
 
 namespace Hariom.Mantras
 {
@@ -87,6 +88,28 @@ namespace Hariom.Mantras
             input.SkipCount = 0;
             input.MaxResultCount = 10000;
             return await base.GetListAsync(input);
+        }
+
+        public async Task<PagedResultDto<MantraDto>> GetListByFilterAsync(PagedAndSortedResultFilterRequestDto input)
+        {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
+            var queryable = await _mantraRepository.GetQueryableAsync();
+            var query = queryable
+                .OrderBy("name")
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), i => i.Name.Contains(input.Filter!))
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount);
+
+            var queryResult = await AsyncExecuter.ToListAsync(query);
+            var totalCount = await Repository.GetCountAsync();
+
+            var items = ObjectMapper.Map<List<Mantra>, List<MantraDto>>(queryResult);
+
+            return new PagedResultDto<MantraDto>(
+                totalCount,
+                items
+            );
         }
 
     }

@@ -23,10 +23,10 @@ namespace Hariom.YogTherapies
             Check.NotNullOrWhiteSpace(yogopcharTherapy, nameof(yogopcharTherapy));
 
             var existingAuthor = await _yogTherapyRepository.FindByYogopcharCategoryAsync(yogopcharCategory);
-            //if (existingAuthor != null)
-            //{
-            //    throw new YogTherapyAlreadyExistsException(yogopcharCategory);
-            //}
+            if (existingAuthor != null && existingAuthor.YogopcharTherapy.Trim() == yogopcharTherapy.Trim())
+            {
+                throw new YogTherapyAlreadyExistsException(yogopcharCategory + " " + yogopcharTherapy);
+            }
 
             return new YogTherapy(GuidGenerator.Create(), yogopcharCategory, yogopcharTherapy);
         }

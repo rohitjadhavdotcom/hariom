@@ -1,6 +1,7 @@
 ﻿using Hariom.Diseases;
 using Hariom.Localization;
 using Hariom.Permissions;
+using Hariom.Treatments;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
 using System;
@@ -12,6 +13,7 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Linq.Dynamic.Core;
 
 namespace Hariom.Medicines
 {
@@ -82,11 +84,26 @@ namespace Hariom.Medicines
 
         }
 
-        public override async Task<PagedResultDto<MedicineDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        public async Task<PagedResultDto<MedicineDto>> GetListByFilterAsync(PagedAndSortedResultFilterRequestDto input)
         {
             input.SkipCount = 0;
             input.MaxResultCount = 10000;
-            return await base.GetListAsync(input);
+            var queryable = await _medicineRepository.GetQueryableAsync();
+            var query = queryable
+                .OrderBy("name")
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), i=> i.Name.Contains(input.Filter!) )
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount);
+
+            var queryResult = await AsyncExecuter.ToListAsync(query);
+            var totalCount = await Repository.GetCountAsync();
+
+            var medicinesDtos =  ObjectMapper.Map<List<Medicine>, List<MedicineDto>>(queryResult);
+
+            return new PagedResultDto<MedicineDto>(
+                totalCount,
+                medicinesDtos
+            );
         }
 
     }

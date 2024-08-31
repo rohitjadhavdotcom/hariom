@@ -1,4 +1,5 @@
 ﻿using Hariom.Localization;
+using Hariom.Medicines;
 using Hariom.Permissions;
 using Hariom.Treatments;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +13,8 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Linq.Dynamic.Core;
+
 
 namespace Hariom.Diseases
 {
@@ -86,6 +89,28 @@ namespace Hariom.Diseases
             input.SkipCount = 0;
             input.MaxResultCount = 10000;
             return await base.GetListAsync(input);
+        }
+
+        public async Task<PagedResultDto<DiseaseDto>> GetListByFilterAsync(PagedAndSortedResultFilterRequestDto input)
+        {
+            input.SkipCount = 0;
+            input.MaxResultCount = 10000;
+            var queryable = await _diseaseRepository.GetQueryableAsync();
+            var query = queryable
+                .OrderBy("name")
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), i => i.Name.Contains(input.Filter!))
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount);
+
+            var queryResult = await AsyncExecuter.ToListAsync(query);
+            var totalCount = await Repository.GetCountAsync();
+
+            var items = ObjectMapper.Map<List<Disease>, List<DiseaseDto>>(queryResult);
+
+            return new PagedResultDto<DiseaseDto>(
+                totalCount,
+                items
+            );
         }
     }
 }
