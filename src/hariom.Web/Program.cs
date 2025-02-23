@@ -31,7 +31,8 @@ public class Program
             var builder = WebApplication.CreateBuilder(args);
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
-                .UseSerilog();
+                .UseSerilog((hostingContext, loggerConfiguration) =>
+    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration));
             await builder.AddApplicationAsync<HariomWebModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
