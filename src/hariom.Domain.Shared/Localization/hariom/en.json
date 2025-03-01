@@ -28,6 +28,7 @@
     "SuccessfullyDeleted": "Successfully deleted!",
 
     "Permission:Hariom": "Hariom",
+    "Label:CreatedBy": "Created By",
 
     "Permission:Diseases": "Disease Management",
     "Permission:Diseases.Create": "Creating new diseases",

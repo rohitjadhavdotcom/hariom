@@ -26,5 +26,6 @@ namespace Hariom.Treatments
         public string SadhakAnubhavLink { get; set; } = null!;
         public Guid DiseaseId { get; set; }
         public string DiseaseName { get; set; } = null!;
+        public string CreatorName { get; set; } = null!;
     }
 }

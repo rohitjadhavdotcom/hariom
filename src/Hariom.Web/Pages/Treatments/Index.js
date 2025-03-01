@@ -53,8 +53,8 @@
                     data: "aboutDisease"
                 },
                 {
-                    title: l('Disease Symptoms'),
-                    data: "diseaseSymptoms"
+                    title: l('Label:CreatedBy'),
+                    data: "creatorName"
                 },
                 {
                     title: l('CreationTime'), data: "creationTime",

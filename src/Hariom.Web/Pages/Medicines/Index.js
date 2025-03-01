@@ -3,7 +3,6 @@
 
     let createModal = new abp.ModalManager(abp.appPath + 'Medicines/CreateModal');
     let editModal = new abp.ModalManager(abp.appPath + 'Medicines/EditModal');
-
     let dataTable = $('#MedicinesTable').DataTable(
         abp.libs.datatables.normalizeConfiguration({
             serverSide: false,
@@ -11,7 +10,7 @@
             order: [[1, "asc"]],
             searching: true,
             scrollX: true,
-            ajax: abp.libs.datatables.createAjax(hariom.medicines.medicine.getList),
+            ajax: abp.libs.datatables.createAjax(hariom.medicines.medicine.getListByFilter),
             columnDefs: [
                 {
                     title: l('Actions'),

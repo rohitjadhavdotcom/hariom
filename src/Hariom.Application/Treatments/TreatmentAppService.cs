@@ -9,6 +9,7 @@ using Hariom.TreatmentMedicineMaps;
 using Hariom.TreatmentYogTherapyMaps;
 using Hariom.YogTherapies;
 using Microsoft.AspNetCore.Authorization;
+using Volo.Abp.Identity;
 using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Entities;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Users;
 
 namespace Hariom.Treatments
 {
@@ -53,6 +55,7 @@ namespace Hariom.Treatments
         protected TreatmentMantraMapManager TreatmentMantraMapManager { get; }
         protected ITreatmentYogTherapyMapRepository TreatmentYogTherapyMapRepository { get; }
         protected TreatmentYogTherapyMapManager TreatmentYogTherapyMapManager { get; }
+        protected IIdentityUserRepository IdentityUserRepository { get; }
 
         public TreatmentAppService(IRepository<Treatment, Guid> repository,
             ITreatmentRepository treatmentRepository,
@@ -66,7 +69,8 @@ namespace Hariom.Treatments
             TreatmentMedicineMapManager treatmentMedicineMapManager,
             TreatmentMantraMapManager treatmentMantraMapManager,
             TreatmentYogTherapyMapManager treatmentYogTherapyMapManager,
-            IDiseaseRepository diseaseRepository
+            IDiseaseRepository diseaseRepository,
+            IIdentityUserRepository identityUserRepository
             )
         : base(repository)
         {
@@ -87,6 +91,7 @@ namespace Hariom.Treatments
             TreatmentYogTherapyMapManager = treatmentYogTherapyMapManager;
             TreatmentRepository = treatmentRepository;
             DiseaseRepository = diseaseRepository;
+            IdentityUserRepository = identityUserRepository;
         }
 
         public override async Task<TreatmentDto> CreateAsync(CreateUpdateTreatmentDto input)
@@ -179,6 +184,7 @@ namespace Hariom.Treatments
             input.SkipCount = 0;
             input.MaxResultCount = 10000;
             var queryable = await Repository.GetQueryableAsync();
+            var users = await IdentityUserRepository.GetListAsync();
 
             var query = from treatment in queryable
                         join disease in await DiseaseRepository.GetQueryableAsync() on treatment.DiseaseId equals disease.Id
@@ -195,6 +201,7 @@ namespace Hariom.Treatments
             {
                 var treatmentDto = ObjectMapper.Map<Treatment, TreatmentDto>(x.treatment);
                 treatmentDto.DiseaseName = x.disease.Name;
+                treatmentDto.CreatorName = users.First(i => i.Id == treatmentDto.CreatorId).Name;
                 return treatmentDto;
             }).ToList();
 
