@@ -29,10 +29,17 @@ public class Program
         {
             Log.Information("Starting web host.");
             var builder = WebApplication.CreateBuilder(args);
+
             builder.Host.AddAppSettingsSecretsJson()
-                .UseAutofac()
-                .UseSerilog((hostingContext, loggerConfiguration) =>
-    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration));
+                .UseAutofac();
+
+            builder.Host.UseSerilog((context, services, configuration) =>
+            {
+                configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services);
+            });
+
             await builder.AddApplicationAsync<HariomWebModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();

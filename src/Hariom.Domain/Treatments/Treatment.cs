@@ -12,7 +12,7 @@ namespace Hariom.Treatments
     public class Treatment : AuditedAggregateRoot<Guid>
     {
         public Guid DiseaseId { get; set; }
-        public string AboutDisease { get; set; } = null!;
+        public string? AboutDisease { get; set; }
         public string DiseaseSymptoms { get; set; } = null!;
         public string DiseaseCauses { get; set; } = null!;
         public string DiseaseDiagnose { get; set; } = null!;

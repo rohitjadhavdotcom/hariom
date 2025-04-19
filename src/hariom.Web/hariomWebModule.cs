@@ -41,6 +41,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Hariom.Permissions;
+using Volo.Abp.AspNetCore.ExceptionHandling;
 
 namespace Hariom.Web;
 
@@ -104,6 +105,12 @@ public class HariomWebModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
+
+        Configure<AbpExceptionHandlingOptions>(options =>
+        {
+            options.SendExceptionsDetailsToClients = true;
+            options.SendStackTraceToClients = true;
+        });
 
         ConfigureAuthentication(context);
         ConfigureUrls(configuration);

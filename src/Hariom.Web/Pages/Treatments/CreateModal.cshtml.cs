@@ -24,7 +24,7 @@ namespace Hariom.Web.Pages.Treatments
         [BindProperty]
         public CreateUpdateTreatmentViewModel Treatment { get; set; }
 
-        public async void OnGet()
+        public async Task OnGet()
         {
             Treatment = new();
 
