@@ -14,7 +14,7 @@ namespace Hariom.Treatments
         [StringLength(1000)]
         [DisplayName("About Disease")]
         [TextArea()]
-        public string? AboutDisease { get; set; } = null!;
+        public string? AboutDisease { get; set; }
 
         [StringLength(1000)]
         [DisplayName("Disease Symptoms")]
@@ -48,6 +48,7 @@ namespace Hariom.Treatments
 
         [StringLength(1000)]
         [DisplayName("Other Remedies")]
+        [TextArea()]
         public string? OtherRemedies { get; set; }
 
         [StringLength(1000)]

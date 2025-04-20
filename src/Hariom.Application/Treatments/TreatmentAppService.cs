@@ -144,7 +144,7 @@ namespace Hariom.Treatments
 
             return treatmentDto;
         }
-
+        
         public async Task<TreatmentNavigationModelDto> GetByIdAsync(Guid id)
         {
             var datas = await TreatmentRepository.GetByIdAsync(id);
