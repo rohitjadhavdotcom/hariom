@@ -9,7 +9,7 @@ namespace Hariom.Treatments
 {
     public class TreatmentNavigationModel
     {
-        public string AboutDisease { get; set; } = null!;
+        public string? AboutDisease { get; set; }
         public string? DiseaseSymptoms { get; set; }
         public string? DiseaseCauses { get; set; }
         public string? DiseaseDiagnose { get; set; }
